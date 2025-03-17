@@ -1,5 +1,4 @@
-import 'package:civix_app/core/utils/app_text_styles.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -18,15 +17,16 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surface,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ]),
+        color: Theme.of(context).colorScheme.surface,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 1,
+            blurRadius: 4,
+            offset: const Offset(0, 3), // changes position of shadow
+          ),
+        ],
+      ),
       width: double.infinity,
       height: 80,
       child: Stack(
@@ -46,9 +46,10 @@ class CustomNavigationBar extends StatelessWidget {
                         width: 80,
                         height: 40,
                         decoration: BoxDecoration(
-                          color: isSelected
-                              ? Theme.of(context).cardTheme.color
-                              : null,
+                          color:
+                              isSelected
+                                  ? Theme.of(context).cardTheme.color
+                                  : null,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Icon(
@@ -57,11 +58,12 @@ class CustomNavigationBar extends StatelessWidget {
                                   ? Icons.home
                                   : Icons.home_outlined
                               : isSelected
-                                  ? Icons.person
-                                  : Icons.person_outline_outlined,
-                          color: isSelected
-                              ? AppColors.primaryColor
-                              : Theme.of(context).colorScheme.onSurface,
+                              ? Icons.person
+                              : Icons.person_outline_outlined,
+                          color:
+                              isSelected
+                                  ? AppColors.primaryColor
+                                  : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       Padding(
@@ -71,7 +73,9 @@ class CustomNavigationBar extends StatelessWidget {
                               ? S.of(context).home
                               : S.of(context).profile,
                           style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.normal),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
                         ),
                       ),
                     ],

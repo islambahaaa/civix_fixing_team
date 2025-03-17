@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:civix_app/constants.dart';
-import 'package:civix_app/core/helper_functions/show_dialog.dart';
-import 'package:civix_app/core/services/shared_prefrences_singleton.dart';
-import 'package:civix_app/core/utils/app_images.dart';
-import 'package:civix_app/features/auth/presentation/views/signin_view.dart';
-import 'package:civix_app/features/home/presentation/views/home_view.dart';
-import 'package:civix_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:civix_teams/constants.dart';
+import 'package:civix_teams/core/helper_functions/show_dialog.dart';
+import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
+import 'package:civix_teams/core/utils/app_images.dart';
+import 'package:civix_teams/features/auth/presentation/views/signin_view.dart';
+import 'package:civix_teams/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
@@ -49,9 +48,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           position: slideAnimation,
           child: ScaleTransition(
             scale: scaleAnimation,
-            child: Image.asset(
-              Assets.imagesLogo,
-            ),
+            child: Image.asset(Assets.imagesLogo),
           ),
         ),
       ),
@@ -68,25 +65,25 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(milliseconds: 1200),
     );
 
-    _fadeAnimation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _fadeController,
-        curve: Curves.ease,
-      ),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _fadeController, curve: Curves.ease));
 
-    slideAnimation =
-        Tween<Offset>(begin: const Offset(-2, 0), end: Offset.zero).animate(
+    slideAnimation = Tween<Offset>(
+      begin: const Offset(-2, 0),
+      end: Offset.zero,
+    ).animate(
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeInOutCubicEmphasized,
       ),
     );
 
-    scaleAnimation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.ease,
-    ));
+    scaleAnimation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.ease));
 
     _controller.forward();
     _fadeController.forward();
@@ -124,7 +121,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
         return SigninView.routeName; // Return the route
       }
     } else {
-      return OnBoardingView.routeName; // Return the route
+      return SigninView.routeName;
+      //return OnBoardingView.routeName; // Return the route
     }
   }
 }

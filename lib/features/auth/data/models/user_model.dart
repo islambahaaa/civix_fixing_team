@@ -1,11 +1,12 @@
-import 'package:civix_app/features/auth/domain/entities/user_entity.dart';
+import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
-  UserModel(
-      {required super.fname,
-      required super.lname,
-      required super.email,
-      required super.token});
+  UserModel({
+    required super.fname,
+    required super.lname,
+    required super.email,
+    required super.token,
+  });
   factory UserModel.fromUserEntity(UserEntity user) {
     return UserModel(
       fname: user.fname,
@@ -23,10 +24,6 @@ class UserModel extends UserEntity {
     );
   }
   Map<String, dynamic> toJson() {
-    return {
-      'fullName': '$fname $lname',
-      'email': email,
-      'token': token,
-    };
+    return {'fullName': '$fname $lname', 'email': email, 'token': token};
   }
 }

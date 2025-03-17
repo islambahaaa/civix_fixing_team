@@ -1,5 +1,5 @@
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/language/lang_cubit.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/language/lang_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,9 +17,17 @@ void showLanguageDialog(BuildContext context) {
           mainAxisSize: MainAxisSize.min,
           children: [
             _languageOption(
-                context, "English", const Locale('en'), currentLocale),
+              context,
+              "English",
+              const Locale('en'),
+              currentLocale,
+            ),
             _languageOption(
-                context, "العربية", const Locale('ar'), currentLocale),
+              context,
+              "العربية",
+              const Locale('ar'),
+              currentLocale,
+            ),
           ],
         ),
       );
@@ -27,8 +35,12 @@ void showLanguageDialog(BuildContext context) {
   );
 }
 
-Widget _languageOption(BuildContext context, String language, Locale locale,
-    Locale currentLocale) {
+Widget _languageOption(
+  BuildContext context,
+  String language,
+  Locale locale,
+  Locale currentLocale,
+) {
   return RadioListTile<Locale>(
     activeColor: AppColors.primaryColor,
     groupValue: currentLocale,

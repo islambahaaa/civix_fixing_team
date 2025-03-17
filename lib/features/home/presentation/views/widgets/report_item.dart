@@ -1,10 +1,9 @@
-import 'package:civix_app/features/report/data/models/report_model.dart';
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/core/utils/app_images.dart';
-import 'package:civix_app/core/utils/app_text_styles.dart';
-import 'package:civix_app/features/home/presentation/views/widgets/custom_report_image.dart';
-import 'package:civix_app/features/report_details/presentation/views/report_details_view.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/core/models/report_model.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_text_styles.dart';
+import 'package:civix_teams/features/home/presentation/views/widgets/custom_report_image.dart';
+import 'package:civix_teams/features/report_details/presentation/views/report_details_view.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ReportItem extends StatelessWidget {
@@ -14,8 +13,11 @@ class ReportItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, ReportDetailsView.routeName,
-            arguments: report);
+        Navigator.pushNamed(
+          context,
+          ReportDetailsView.routeName,
+          arguments: report,
+        );
       },
       child: Material(
         color: Colors.transparent,
@@ -26,8 +28,9 @@ class ReportItem extends StatelessWidget {
               Hero(
                 tag: 'imageHero${report.id}',
                 child: CustomReportImage(
-                    borderRadius: BorderRadius.circular(12),
-                    imageUrl: 'https://picsum.photos/200'),
+                  borderRadius: BorderRadius.circular(12),
+                  imageUrl: 'https://picsum.photos/200',
+                ),
               ),
 
               // Image.asset(
@@ -36,9 +39,7 @@ class ReportItem extends StatelessWidget {
               //   width: 100,
               //   height: 50,
               // ),
-              const SizedBox(
-                width: 20,
-              ),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,16 +50,18 @@ class ReportItem extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: report.status == S.of(context).solved
-                                  ? Colors.green[600]
-                                  : report.status == S.of(context).in_progress
-                                      ? Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? Theme.of(context).cardTheme.color
-                                          : Colors.grey[200]
-                                      : Colors.red[600],
-                              //color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(8)),
+                            color:
+                                report.status == S.of(context).solved
+                                    ? Colors.green[600]
+                                    : report.status == S.of(context).in_progress
+                                    ? Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Theme.of(context).cardTheme.color
+                                        : Colors.grey[200]
+                                    : Colors.red[600],
+                            //color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                           child: Text(
                             report.status,
                             style: const TextStyle(
@@ -71,34 +74,35 @@ class ReportItem extends StatelessWidget {
                         Text(
                           report.date,
                           style: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w300,
-                              color: AppColors.lightGrayColor),
-                        )
+                            fontSize: 10,
+                            fontWeight: FontWeight.w300,
+                            color: AppColors.lightGrayColor,
+                          ),
+                        ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 5,
-                    ),
+                    const SizedBox(height: 5),
                     Text(
                       report.title,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyles.semibold16inter,
                     ),
-                    const SizedBox(
-                      height: 3,
-                    ),
+                    const SizedBox(height: 3),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(report.city,
-                            style: TextStyle(
-                                fontSize: 12, color: Colors.grey[600])),
+                        Text(
+                          report.city,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

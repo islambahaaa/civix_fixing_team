@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:civix_app/features/auth/domain/repos/auth_repo.dart';
+import 'package:civix_teams/features/auth/domain/repos/auth_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'otp_state.dart';

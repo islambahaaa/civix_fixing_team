@@ -1,16 +1,15 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:civix_app/constants.dart';
-import 'package:civix_app/core/errors/exceptions.dart';
-import 'package:civix_app/core/errors/failures.dart';
-import 'package:civix_app/core/services/api_auth_service.dart';
-import 'package:civix_app/core/services/database_service.dart';
+import 'package:civix_teams/constants.dart';
+import 'package:civix_teams/core/errors/exceptions.dart';
+import 'package:civix_teams/core/errors/failures.dart';
+import 'package:civix_teams/core/services/api_auth_service.dart';
 
-import 'package:civix_app/core/services/shared_prefrences_singleton.dart';
-import 'package:civix_app/core/utils/backend_endpoints.dart';
-import 'package:civix_app/features/auth/data/models/user_model.dart';
-import 'package:civix_app/features/auth/domain/entities/user_entity.dart';
+import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
+import 'package:civix_teams/core/utils/backend_endpoints.dart';
+import 'package:civix_teams/features/auth/data/models/user_model.dart';
+import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -24,24 +23,32 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
-      String fname,
-      String lname,
-      String email,
-      String password,
-      String confirmedPassword) async {
+    String fname,
+    String lname,
+    String email,
+    String password,
+    String confirmedPassword,
+  ) async {
     try {
       var response = await apiAuthService.createUserWithEmailAndPassword(
-          fname, lname, email, password, confirmedPassword);
+        fname,
+        lname,
+        email,
+        password,
+        confirmedPassword,
+      );
       var userEntity = UserEntity(
-          fname: fname, lname: lname, email: email, token: response['token']);
+        fname: fname,
+        lname: lname,
+        email: email,
+        token: response['token'],
+      );
       return right(userEntity);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -53,10 +60,14 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
-      String email, String password) async {
+    String email,
+    String password,
+  ) async {
     try {
-      var response =
-          await apiAuthService.signInWithEmailAndPassword(email, password);
+      var response = await apiAuthService.signInWithEmailAndPassword(
+        email,
+        password,
+      );
       var userEntity = UserModel.fromJson(response);
       saveUserData(user: userEntity);
       return right(userEntity);
@@ -64,9 +75,7 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -79,26 +88,30 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(ServerFailure(e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, String>> newPassword(String token, String email,
-      String password, String confirmedPassword) async {
+  Future<Either<Failure, String>> newPassword(
+    String token,
+    String email,
+    String password,
+    String confirmedPassword,
+  ) async {
     try {
       var response = await apiAuthService.newPassword(
-          token, email, password, confirmedPassword);
+        token,
+        email,
+        password,
+        confirmedPassword,
+      );
       return right(response['message']);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -111,9 +124,7 @@ class AuthRepoImpl implements AuthRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return left(ServerFailure(
-        e.toString(),
-      ));
+      return left(ServerFailure(e.toString()));
     }
   }
 
