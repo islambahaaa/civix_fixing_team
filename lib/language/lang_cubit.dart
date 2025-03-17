@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:civix_app/core/services/shared_prefrences_singleton.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 

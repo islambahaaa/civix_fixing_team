@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -21,7 +19,9 @@ class ServerFailure extends Failure {
         return ServerFailure(S.current.receive_timeout);
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioerror.response!.statusCode!, dioerror.response!.data);
+          dioerror.response!.statusCode!,
+          dioerror.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure(S.current.connection_cancelled);
       case DioExceptionType.connectionError:

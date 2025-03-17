@@ -1,12 +1,14 @@
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/Resource/Strings.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 
 class PasswordValidator extends StatelessWidget {
-  const PasswordValidator(
-      {super.key, required this.controller, required this.onFailure});
+  const PasswordValidator({
+    super.key,
+    required this.controller,
+    required this.onFailure,
+  });
   final TextEditingController controller;
   final ValueChanged<bool> onFailure;
   @override

@@ -1,7 +1,6 @@
-import 'package:civix_app/core/helper_functions/build_snack_bar.dart';
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/core/utils/app_text_styles.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_text_styles.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -52,15 +51,13 @@ class CustomTextFormField extends StatelessWidget {
       },
       keyboardType: textInputType,
       decoration: InputDecoration(
-        prefixIcon: Icon(
-          prefixIcon,
-          color: AppColors.secondaryColor,
-        ),
+        prefixIcon: Icon(prefixIcon, color: AppColors.secondaryColor),
         suffixIcon: suffixIcon,
         filled: true,
-        fillColor: Theme.of(context).brightness == Brightness.light
-            ? const Color(0xFFF9FAFA)
-            : Colors.transparent,
+        fillColor:
+            Theme.of(context).brightness == Brightness.light
+                ? const Color(0xFFF9FAFA)
+                : Colors.transparent,
         border: buildBorder(isDone: isDone),
         enabledBorder: buildBorder(isDone: isDone),
         focusedBorder: buildBorder(),

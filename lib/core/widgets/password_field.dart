@@ -1,5 +1,4 @@
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/core/widgets/custom_text_form_field.dart';
+import 'package:civix_teams/core/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
@@ -36,15 +35,10 @@ class _PasswordFieldState extends State<PasswordField> {
             obscureText = !obscureText;
           });
         },
-        child: obscureText
-            ? const Icon(
-                Icons.remove_red_eye,
-                color: Color(0xffC9CECF),
-              )
-            : const Icon(
-                Icons.visibility_off,
-                color: Color(0xffC9CECF),
-              ),
+        child:
+            obscureText
+                ? const Icon(Icons.remove_red_eye, color: Color(0xffC9CECF))
+                : const Icon(Icons.visibility_off, color: Color(0xffC9CECF)),
       ),
     );
   }

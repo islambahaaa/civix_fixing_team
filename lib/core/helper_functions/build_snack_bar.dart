@@ -1,4 +1,4 @@
-import 'package:civix_app/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 void buildSnackBar(BuildContext context, String message) {
@@ -9,12 +9,7 @@ void buildSnackBar(BuildContext context, String message) {
       behavior: SnackBarBehavior.floating,
       duration: const Duration(seconds: 1),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      content: Text(
-        message,
-        style: const TextStyle(
-          color: Colors.white,
-        ),
-      ),
+      content: Text(message, style: const TextStyle(color: Colors.white)),
     ),
   );
 }

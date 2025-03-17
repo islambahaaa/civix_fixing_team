@@ -1,6 +1,6 @@
-import 'package:civix_app/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../utils/app_images.dart';
 
@@ -27,10 +27,7 @@ class NotificationItem extends StatelessWidget {
               shape: BoxShape.circle,
               color: Theme.of(context).cardTheme.color, // Light primary color
             ),
-            child: SvgPicture.asset(
-              Assets.imagesNotification,
-              width: 26,
-            ),
+            child: SvgPicture.asset(Assets.imagesNotification, width: 26),
           ),
         ),
         if (notificationCount > 0)
@@ -43,10 +40,7 @@ class NotificationItem extends StatelessWidget {
                 color: AppColors.primaryColor,
                 borderRadius: BorderRadius.circular(12),
               ),
-              constraints: const BoxConstraints(
-                minWidth: 18,
-                minHeight: 18,
-              ),
+              constraints: const BoxConstraints(minWidth: 18, minHeight: 18),
               child: Text(
                 notificationCount > 99 ? '99+' : notificationCount.toString(),
                 style: const TextStyle(

@@ -42,6 +42,10 @@ class Assets {
   /// assets/icon/icon.png
   static const String iconIcon = "assets/icon/icon.png";
 
+  /// Assets for imagesBubbles
+  /// assets/images/Bubbles.svg
+  static const String imagesBubbles = "assets/images/Bubbles.svg";
+
   /// Assets for imagesChecked
   /// assets/images/checked.svg
   static const String imagesChecked = "assets/images/checked.svg";

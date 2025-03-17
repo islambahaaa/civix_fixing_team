@@ -1,5 +1,5 @@
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/core/utils/app_text_styles.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
