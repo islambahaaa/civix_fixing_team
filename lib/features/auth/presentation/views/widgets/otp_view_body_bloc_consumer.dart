@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:civix_app/core/helper_functions/build_snack_bar.dart';
-import 'package:civix_app/core/widgets/custom_progress_hud.dart';
-import 'package:civix_app/features/auth/domain/entities/user_entity.dart';
-import 'package:civix_app/features/auth/presentation/cubits/otp_cubit/otp_cubit.dart';
-import 'package:civix_app/features/auth/presentation/views/new_password_view.dart';
-import 'package:civix_app/features/auth/presentation/views/widgets/otp_view_body.dart';
+import 'package:civix_teams/core/helper_functions/build_snack_bar.dart';
+import 'package:civix_teams/core/widgets/custom_progress_hud.dart';
+import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
+import 'package:civix_teams/features/auth/presentation/cubits/otp_cubit/otp_cubit.dart';
+import 'package:civix_teams/features/auth/presentation/views/new_password_view.dart';
+import 'package:civix_teams/features/auth/presentation/views/widgets/otp_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -72,8 +72,11 @@ class _OtpViewBodyBlocConsumerState extends State<OtpViewBodyBlocConsumer> {
             email: widget.email,
             token: state.token,
           );
-          Navigator.pushReplacementNamed(context, NewPasswordView.routeName,
-              arguments: userEntity);
+          Navigator.pushReplacementNamed(
+            context,
+            NewPasswordView.routeName,
+            arguments: userEntity,
+          );
         }
         if (state is CheckOtpFailure) {
           buildSnackBar(context, state.message);

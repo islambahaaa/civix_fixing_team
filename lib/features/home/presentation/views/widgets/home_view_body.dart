@@ -1,7 +1,7 @@
 import 'package:civix_teams/features/auth/presentation/cubits/user_cubit/user_cubit.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_home_app_bar.dart';
-import 'package:civix_teams/features/home/presentation/views/widgets/newest_reports_header.dart';
-import 'package:civix_teams/features/home/presentation/views/widgets/newest_reports_list_view.dart';
+import 'package:civix_teams/features/home/presentation/views/widgets/assigned_to_me_header.dart';
+import 'package:civix_teams/features/home/presentation/views/widgets/assigned_to_me_list_view.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:civix_teams/constants.dart';
@@ -38,14 +38,12 @@ class HomeViewBody extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 16),
-
-                const SizedBox(height: 16),
-                const NewestReportsHeader(),
+                const AssignedToMeHeader(),
                 const SizedBox(height: 12),
               ],
             ),
           ),
-          const NewestReportsListView(),
+          const AssignedToMeListView(),
         ],
       ),
     );

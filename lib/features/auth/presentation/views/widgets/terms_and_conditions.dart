@@ -1,8 +1,8 @@
-import 'package:civix_app/features/auth/presentation/views/widgets/custom_check_box.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/features/auth/presentation/views/widgets/custom_check_box.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:civix_app/core/utils/app_colors.dart';
-import 'package:civix_app/core/utils/app_text_styles.dart';
+import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/core/utils/app_text_styles.dart';
 
 class TermsAndConditions extends StatefulWidget {
   const TermsAndConditions({super.key, required this.onChange});
@@ -27,9 +27,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
           isChecked: isTermsAccepted,
         ),
         // const TestCheckBox(),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         Expanded(
           child: GestureDetector(
             onTap: () {
@@ -42,29 +40,29 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                 children: [
                   TextSpan(
                     text: S.of(context).agree_terms,
-                    style: TextStyles.regular14inter
-                        .copyWith(color: AppColors.lightGrayColor),
+                    style: TextStyles.regular14inter.copyWith(
+                      color: AppColors.lightGrayColor,
+                    ),
                   ),
                   TextSpan(
                     text: S.of(context).terms,
-                    style: TextStyles.regular14inter
-                        .copyWith(color: AppColors.secondaryColor),
+                    style: TextStyles.regular14inter.copyWith(
+                      color: AppColors.secondaryColor,
+                    ),
                   ),
-                  const TextSpan(
-                    text: ' ',
-                  ),
+                  const TextSpan(text: ' '),
                   TextSpan(
                     text: S.of(context).and,
-                    style: TextStyles.regular14inter
-                        .copyWith(color: AppColors.secondaryColor),
+                    style: TextStyles.regular14inter.copyWith(
+                      color: AppColors.secondaryColor,
+                    ),
                   ),
-                  const TextSpan(
-                    text: ' ',
-                  ),
+                  const TextSpan(text: ' '),
                   TextSpan(
                     text: S.of(context).conditions,
-                    style: TextStyles.regular14inter
-                        .copyWith(color: AppColors.secondaryColor),
+                    style: TextStyles.regular14inter.copyWith(
+                      color: AppColors.secondaryColor,
+                    ),
                   ),
                 ],
               ),

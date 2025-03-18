@@ -25,7 +25,8 @@ class NotificationItem extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Theme.of(context).cardTheme.color, // Light primary color
+              // color: Theme.of(context).cardTheme.color,
+              color: AppColors.lightSecondaryColor2,
             ),
             child: SvgPicture.asset(Assets.imagesNotification, width: 26),
           ),
@@ -37,7 +38,7 @@ class NotificationItem extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
               decoration: BoxDecoration(
-                color: AppColors.primaryColor,
+                color: AppColors.secondaryColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               constraints: const BoxConstraints(minWidth: 18, minHeight: 18),

@@ -17,7 +17,8 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        // color: Theme.of(context).colorScheme.surface,
+        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -48,7 +49,8 @@ class CustomNavigationBar extends StatelessWidget {
                         decoration: BoxDecoration(
                           color:
                               isSelected
-                                  ? Theme.of(context).cardTheme.color
+                                  ? AppColors.primaryColor
+                                  // ? Theme.of(context).cardTheme.color
                                   : null,
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -62,7 +64,8 @@ class CustomNavigationBar extends StatelessWidget {
                               : Icons.person_outline_outlined,
                           color:
                               isSelected
-                                  ? AppColors.primaryColor
+                                  ? Colors.white
+                                  // ? AppColors.primaryColor
                                   : Theme.of(context).colorScheme.onSurface,
                         ),
                       ),

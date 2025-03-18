@@ -1,13 +1,13 @@
-import 'package:civix_app/constants.dart';
-import 'package:civix_app/features/auth/presentation/cubits/otp_cubit/otp_cubit.dart';
-import 'package:civix_app/features/auth/presentation/views/otp_view.dart';
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/constants.dart';
+import 'package:civix_teams/features/auth/presentation/cubits/otp_cubit/otp_cubit.dart';
+import 'package:civix_teams/features/auth/presentation/views/otp_view.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:civix_app/core/utils/app_images.dart';
-import 'package:civix_app/core/utils/app_text_styles.dart';
-import 'package:civix_app/core/widgets/custom_button.dart';
+import 'package:civix_teams/core/utils/app_images.dart';
+import 'package:civix_teams/core/utils/app_text_styles.dart';
+import 'package:civix_teams/core/widgets/custom_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:svg_flutter/svg_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
@@ -34,13 +34,12 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
           child: Column(
             children: [
               Center(
-                  child: SvgPicture.asset(
-                Assets.imagesForgotPassword,
-                height: MediaQuery.of(context).size.height * 0.4,
-              )),
-              const SizedBox(
-                height: 16,
+                child: SvgPicture.asset(
+                  Assets.imagesForgotPassword,
+                  height: MediaQuery.of(context).size.height * 0.4,
+                ),
               ),
+              const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Text(
@@ -49,9 +48,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               CustomTextFormField(
                 isEmailform: true,
                 onSaved: (value) {
@@ -61,9 +58,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                 prefixIcon: Icons.email,
                 textInputType: TextInputType.emailAddress,
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               CustomButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
@@ -77,9 +72,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                 },
                 text: S.of(context).send_code,
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
             ],
           ),
         ),

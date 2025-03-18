@@ -1,18 +1,14 @@
-import 'package:civix_app/core/helper_functions/build_snack_bar.dart';
-import 'package:civix_app/core/helper_functions/show_dialog.dart';
-import 'package:civix_app/core/widgets/custom_progress_hud.dart';
-import 'package:civix_app/features/auth/domain/entities/user_entity.dart';
-import 'package:civix_app/features/auth/presentation/cubits/new_password/new_password_cubit.dart';
-import 'package:civix_app/features/auth/presentation/views/widgets/forgot_password_view_body.dart';
-import 'package:civix_app/features/auth/presentation/views/widgets/new_password_view_body.dart';
+import 'package:civix_teams/core/helper_functions/build_snack_bar.dart';
+import 'package:civix_teams/core/helper_functions/show_dialog.dart';
+import 'package:civix_teams/core/widgets/custom_progress_hud.dart';
+import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
+import 'package:civix_teams/features/auth/presentation/cubits/new_password/new_password_cubit.dart';
+import 'package:civix_teams/features/auth/presentation/views/widgets/new_password_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NewPasswordViewBodyBlocConsumer extends StatelessWidget {
-  const NewPasswordViewBodyBlocConsumer({
-    super.key,
-    required this.userEntity,
-  });
+  const NewPasswordViewBodyBlocConsumer({super.key, required this.userEntity});
   final UserEntity userEntity;
   @override
   Widget build(BuildContext context) {
@@ -32,9 +28,7 @@ class NewPasswordViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return CustomProgressHud(
           isLoading: state is NewPasswordLoading,
-          child: NewPasswordViewBody(
-            user: userEntity,
-          ),
+          child: NewPasswordViewBody(user: userEntity),
         );
       },
     );

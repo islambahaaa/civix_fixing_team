@@ -44,6 +44,7 @@ dependencies:
   get_it: ^8.0.3
   jwt_decoder: ^2.0.1
   modal_progress_hud_nsn: ^0.5.1
+  pinput: ^5.0.1
   shared_preferences: ^2.5.2
   skeletonizer: ^1.4.3
 
@@ -71,6 +72,27 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+  fonts:
+    - family: ins
+      fonts:
+        - asset: assets/fonts/InstrumentSans-Regular.ttf
+        - asset: assets/fonts/InstrumentSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/InstrumentSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/InstrumentSans-SemiBold.ttf
+          weight: 600
+    - family: inter
+      fonts:
+        - asset: assets/fonts/Inter_24pt-Regular.ttf
+        - asset: assets/fonts/Inter_24pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter_24pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter_24pt-SemiBold.ttf
+          weight: 600
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

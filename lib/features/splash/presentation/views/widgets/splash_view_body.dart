@@ -103,26 +103,19 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   Future<String> getTargetRoute() async {
     await Future.delayed(const Duration(milliseconds: 1200));
-
-    bool isOnBoardingSeen = Prefs.getBool(kIsOnBoardingSeen) ?? false;
     String? user = await Prefs.getString(kUserData);
 
-    if (isOnBoardingSeen) {
-      if (user != null) {
-        Map<String, dynamic> userMap = jsonDecode(user);
-        var token = userMap['token'] ?? '';
-        if (JwtDecoder.isExpired(token)) {
-          await Prefs.remove(kUserData);
-          return 'tokenExpired'; // Return the route
-        } else {
-          return HomeView.routeName; // Return the route
-        }
+    if (user != null) {
+      Map<String, dynamic> userMap = jsonDecode(user);
+      var token = userMap['token'] ?? '';
+      if (JwtDecoder.isExpired(token)) {
+        await Prefs.remove(kUserData);
+        return 'tokenExpired'; // Return the route
       } else {
-        return SigninView.routeName; // Return the route
+        return HomeView.routeName; // Return the route
       }
     } else {
-      return SigninView.routeName;
-      //return OnBoardingView.routeName; // Return the route
+      return SigninView.routeName; // Return the route
     }
   }
 }

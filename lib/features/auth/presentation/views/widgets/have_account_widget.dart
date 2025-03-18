@@ -1,4 +1,4 @@
-import 'package:civix_app/generated/l10n.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -15,20 +15,21 @@ class HaveAccountWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: S.of(context).have_account,
-            style: TextStyles.semibold16inter
-                .copyWith(color: AppColors.lightGrayColor),
+            style: TextStyles.semibold16inter.copyWith(
+              color: AppColors.lightGrayColor,
+            ),
           ),
-          const TextSpan(
-            text: ' ',
-          ),
+          const TextSpan(text: ' '),
           TextSpan(
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                Navigator.of(context).pop();
-              },
+            recognizer:
+                TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.of(context).pop();
+                  },
             text: S.of(context).login,
-            style: TextStyles.semibold16inter
-                .copyWith(color: AppColors.primaryColor),
+            style: TextStyles.semibold16inter.copyWith(
+              color: AppColors.primaryColor,
+            ),
           ),
         ],
       ),

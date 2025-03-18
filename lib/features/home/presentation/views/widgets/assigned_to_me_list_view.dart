@@ -3,8 +3,8 @@ import 'package:civix_teams/features/home/presentation/views/widgets/report_item
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class NewestReportsListView extends StatelessWidget {
-  const NewestReportsListView({super.key});
+class AssignedToMeListView extends StatelessWidget {
+  const AssignedToMeListView({super.key});
 
   @override
   Widget build(BuildContext context) {

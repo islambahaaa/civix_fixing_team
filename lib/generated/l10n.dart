@@ -647,11 +647,11 @@ class S {
     );
   }
 
-  /// `Previous Submissions`
-  String get prev_submissions {
+  /// `Assigned to me`
+  String get assigned_to_me {
     return Intl.message(
-      'Previous Submissions',
-      name: 'prev_submissions',
+      'Assigned to me',
+      name: 'assigned_to_me',
       desc: '',
       args: [],
     );

@@ -58,21 +58,6 @@ class _HomeViewState extends State<HomeView> {
                   : Brightness.dark,
         ),
         child: Scaffold(
-          floatingActionButton:
-              currentIndex != 0
-                  ? null
-                  : FloatingActionButton.extended(
-                    label: Text(
-                      S.of(context).report,
-                      style: TextStyles.regular14inter.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                    icon: const Icon(Icons.add, color: Colors.white, size: 24),
-                    splashColor: AppColors.primaryColor,
-                    backgroundColor: AppColors.secondaryColor,
-                    onPressed: () {},
-                  ),
           bottomNavigationBar: CustomNavigationBar(
             selectedIndex: currentIndex,
             onItemSelected: (index) {
