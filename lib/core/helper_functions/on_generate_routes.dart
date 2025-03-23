@@ -1,5 +1,7 @@
 import 'dart:math';
-import 'package:civix_teams/core/models/report_model.dart';
+
+import 'package:civix_teams/features/profile/presentation/views/profile_view.dart';
+import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
 import 'package:civix_teams/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:civix_teams/features/auth/presentation/views/new_password_view.dart';
@@ -7,10 +9,10 @@ import 'package:civix_teams/features/auth/presentation/views/otp_view.dart';
 import 'package:civix_teams/features/auth/presentation/views/sign_up_view.dart';
 import 'package:civix_teams/features/auth/presentation/views/signin_view.dart';
 import 'package:civix_teams/features/home/presentation/views/home_view.dart';
-import 'package:civix_teams/features/profile/presentation/views/profile_view.dart';
 import 'package:civix_teams/features/report_details/presentation/views/report_details_view.dart';
 import 'package:civix_teams/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {

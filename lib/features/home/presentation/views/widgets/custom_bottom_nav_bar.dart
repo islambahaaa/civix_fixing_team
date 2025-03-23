@@ -1,13 +1,12 @@
+import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/app_colors.dart';
-
-class CustomNavigationBar extends StatelessWidget {
+class CustomBottomNavBar extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onItemSelected;
 
-  const CustomNavigationBar({
+  const CustomBottomNavBar({
     super.key,
     required this.selectedIndex,
     required this.onItemSelected,
@@ -17,75 +16,51 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // color: Theme.of(context).colorScheme.surface,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 4,
-            offset: const Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 4), // changes position of shadow
           ),
         ],
       ),
       width: double.infinity,
-      height: 80,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: List.generate(2, (index) {
-                final isSelected = selectedIndex == index;
-                return GestureDetector(
-                  onTap: () => onItemSelected(index),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      AnimatedContainer(
-                        duration: const Duration(milliseconds: 150),
-                        width: 80,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color:
-                              isSelected
-                                  ? AppColors.primaryColor
-                                  // ? Theme.of(context).cardTheme.color
-                                  : null,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Icon(
-                          index == 0
-                              ? isSelected
-                                  ? Icons.home
-                                  : Icons.home_outlined
-                              : isSelected
-                              ? Icons.person
-                              : Icons.person_outline_outlined,
-                          color:
-                              isSelected
-                                  ? Colors.white
-                                  // ? AppColors.primaryColor
-                                  : Theme.of(context).colorScheme.onSurface,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4, bottom: 4),
-                        child: Text(
-                          index == 0
-                              ? S.of(context).home
-                              : S.of(context).profile,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }),
+      child: NavigationBar(
+        labelTextStyle: WidgetStatePropertyAll(
+          TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
+            fontSize: 14,
+          ),
+        ),
+        labelPadding: const EdgeInsets.all(4),
+        indicatorShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        indicatorColor: Theme.of(context).cardTheme.color,
+        onDestinationSelected: onItemSelected,
+        selectedIndex: selectedIndex,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        destinations: [
+          NavigationDestination(
+            selectedIcon: const Icon(Icons.home, color: AppColors.primaryColor),
+            icon: Icon(
+              Icons.home_outlined,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
+            label: S.of(context).home,
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(
+              Icons.person,
+              color: AppColors.primaryColor,
+            ),
+            icon: Icon(
+              Icons.person_outline_outlined,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+            label: S.of(context).profile,
           ),
         ],
       ),
