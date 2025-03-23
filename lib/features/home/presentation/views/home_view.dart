@@ -6,6 +6,7 @@ import 'package:civix_teams/features/home/domain/repos/home_repo.dart';
 import 'package:civix_teams/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_bottom_nav_bar.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_bottom_nav_bar.dart';
+import 'package:civix_teams/features/my%20team/presentation/views/my_team_view.dart';
 import 'package:civix_teams/features/profile/presentation/views/profile_view.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +89,7 @@ class _HomeViewState extends State<HomeView> {
                     );
                   },
                 ),
+                const MyTeamView(),
                 const ProfileView(),
               ],
             ),

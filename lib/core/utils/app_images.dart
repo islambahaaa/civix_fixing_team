@@ -69,5 +69,13 @@ class Assets {
   /// Assets for imagesVerified
   /// assets/images/Verified.svg
   static const String imagesVerified = "assets/images/Verified.svg";
+
+  /// Assets for imagesWhatsApp
+  /// assets/images/WhatsApp.svg
+  static const String imagesWhatsApp = "assets/images/WhatsApp.svg";
+
+  /// Assets for imagesWhatsappSvgrepoCom
+  /// assets/images/whatsapp-svgrepo-com.svg
+  static const String imagesWhatsappSvgrepoCom = "assets/images/whatsapp-svgrepo-com.svg";
 }
 

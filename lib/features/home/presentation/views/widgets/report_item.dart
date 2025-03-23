@@ -1,4 +1,4 @@
-import 'package:civix_teams/core/models/report_model.dart';
+import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_report_image.dart';
@@ -25,12 +25,9 @@ class ReportItem extends StatelessWidget {
           height: 90,
           child: Row(
             children: [
-              Hero(
-                tag: 'imageHero${report.id}',
-                child: CustomReportImage(
-                  borderRadius: BorderRadius.circular(12),
-                  imageUrl: 'https://picsum.photos/200',
-                ),
+              CustomReportImage(
+                borderRadius: BorderRadius.circular(12),
+                imageUrl: report.images[0],
               ),
 
               // Image.asset(
@@ -53,7 +50,7 @@ class ReportItem extends StatelessWidget {
                             color:
                                 report.status == S.of(context).solved
                                     ? Colors.green[600]
-                                    : report.status == S.of(context).in_progress
+                                    : report.status == 'Open'
                                     ? Theme.of(context).brightness ==
                                             Brightness.dark
                                         ? Theme.of(context).cardTheme.color
@@ -92,7 +89,8 @@ class ReportItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          report.city ?? '',
+                          report.city!,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],

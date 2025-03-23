@@ -1,6 +1,6 @@
 import 'package:civix_teams/core/errors/failures.dart';
-import 'package:civix_teams/core/models/report_model.dart';
 import 'package:civix_teams/core/services/api_reports_service.dart';
+import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/features/home/domain/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';

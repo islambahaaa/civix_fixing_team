@@ -53,6 +53,17 @@ class CustomBottomNavBar extends StatelessWidget {
           ),
           NavigationDestination(
             selectedIcon: const Icon(
+              Icons.people,
+              color: AppColors.primaryColor,
+            ),
+            icon: Icon(
+              Icons.people_alt_outlined,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+            label: 'My Team',
+          ),
+          NavigationDestination(
+            selectedIcon: const Icon(
               Icons.person,
               color: AppColors.primaryColor,
             ),

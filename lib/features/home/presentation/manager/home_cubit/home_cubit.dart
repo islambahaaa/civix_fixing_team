@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:civix_teams/core/models/report_model.dart';
+import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/features/home/domain/repos/home_repo.dart';
 
 import 'package:meta/meta.dart';

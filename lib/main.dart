@@ -30,6 +30,7 @@ class CivixTeamsApp extends StatelessWidget {
       child: BlocBuilder<LanguageCubit, Locale>(
         builder: (context, locale) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             locale: locale,
             title: 'Civix Teams',
             theme: ThemeData(
@@ -48,7 +49,6 @@ class CivixTeamsApp extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
             onGenerateRoute: onGenerateRoute,
             initialRoute: SplashView.routeName,
-            debugShowCheckedModeBanner: false,
           );
         },
       ),
