@@ -17,7 +17,7 @@ class MyTeamViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ListView.builder(
         itemCount: contacts.length,
         physics: const BouncingScrollPhysics(),
