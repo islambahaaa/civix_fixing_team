@@ -21,6 +21,7 @@ class LocationSection extends StatelessWidget {
         const Text(
           "Location",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 16),
         LocationWidget(text: address),

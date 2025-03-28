@@ -101,13 +101,35 @@ class ReportDetailsBottomBar extends StatelessWidget {
       ),
 
       padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          BottomDetailsViewButton(text: 'Directions', onPressed: () {}),
-          BottomDetailsViewButton(text: 'Decline', onPressed: () {}),
-          BottomDetailsViewButton(text: 'Update Status', onPressed: () {}),
-        ],
+      child: FittedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            BottomDetailsViewButton(
+              text: 'Directions',
+              icon: Icons.directions,
+              backgroundColor: Colors.blue,
+              textColor: Colors.white,
+              onPressed: () {},
+            ),
+            const SizedBox(width: 8),
+            BottomDetailsViewButton(
+              text: 'Decline',
+              icon: Icons.cancel,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              onPressed: () {},
+            ),
+            const SizedBox(width: 8),
+            BottomDetailsViewButton(
+              text: 'Update Status',
+              icon: Icons.done,
+              backgroundColor: Colors.green,
+              textColor: Colors.white,
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -117,19 +139,43 @@ class BottomDetailsViewButton extends StatelessWidget {
   const BottomDetailsViewButton({
     super.key,
     required this.text,
+    required this.icon,
+    required this.backgroundColor,
+    required this.textColor,
     this.onPressed,
   });
+
   final String text;
+  final IconData icon;
+  final Color backgroundColor;
+  final Color textColor;
   final void Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        // fixedSize: Size(MediaQuery.of(context).size.width / 4, 60),
+        elevation: 0,
+        backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       ),
       onPressed: onPressed,
-      child: Text(text),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, color: textColor, size: 20),
+          const SizedBox(width: 6),
+          Text(
+            text,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              color: textColor,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -60,7 +60,7 @@ class ReportModel extends ReportEntity {
       if (placemarks.isNotEmpty) {
         Placemark place = placemarks.first;
         city = [
-          place.subThoroughfare,
+          place.thoroughfare,
           place.locality,
           place.administrativeArea,
         ].where((element) => element != null && element.isNotEmpty).join(", ");
