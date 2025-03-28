@@ -86,7 +86,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 text: S.of(context).login,
               ),
               const SizedBox(height: 16),
-              const DontHaveAccount(),
+              //const DontHaveAccount(),
             ],
           ),
         ),
