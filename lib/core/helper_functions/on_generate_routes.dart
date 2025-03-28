@@ -11,6 +11,7 @@ import 'package:civix_teams/features/auth/presentation/views/signin_view.dart';
 import 'package:civix_teams/features/home/presentation/views/home_view.dart';
 import 'package:civix_teams/features/report_details/presentation/views/report_details_view.dart';
 import 'package:civix_teams/features/splash/presentation/views/splash_view.dart';
+import 'package:civix_teams/features/update_status/presentation/views/update_status_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,6 +44,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const ProfileView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
+    case UpdateStatusView.routeName:
+      return MaterialPageRoute(builder: (context) => const UpdateStatusView());
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

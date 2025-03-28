@@ -1,6 +1,7 @@
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/widgets/custom_button.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
+import 'package:civix_teams/features/report_details/presentation/views/widgets/bottom_action_bar.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/description_section.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/image_slider.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/location_section.dart';
@@ -77,104 +78,6 @@ class ReportDetailsView extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ReportDetailsBottomBar extends StatelessWidget {
-  const ReportDetailsBottomBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: const Offset(0, 4), // changes position of shadow
-          ),
-        ],
-      ),
-
-      padding: const EdgeInsets.all(16.0),
-      child: FittedBox(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BottomDetailsViewButton(
-              text: 'Directions',
-              icon: Icons.directions,
-              backgroundColor: Colors.blue,
-              textColor: Colors.white,
-              onPressed: () {},
-            ),
-            const SizedBox(width: 8),
-            BottomDetailsViewButton(
-              text: 'Decline',
-              icon: Icons.cancel,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              onPressed: () {},
-            ),
-            const SizedBox(width: 8),
-            BottomDetailsViewButton(
-              text: 'Update Status',
-              icon: Icons.done,
-              backgroundColor: Colors.green,
-              textColor: Colors.white,
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BottomDetailsViewButton extends StatelessWidget {
-  const BottomDetailsViewButton({
-    super.key,
-    required this.text,
-    required this.icon,
-    required this.backgroundColor,
-    required this.textColor,
-    this.onPressed,
-  });
-
-  final String text;
-  final IconData icon;
-  final Color backgroundColor;
-  final Color textColor;
-  final void Function()? onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        elevation: 0,
-        backgroundColor: backgroundColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-      ),
-      onPressed: onPressed,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: textColor, size: 20),
-          const SizedBox(width: 6),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: textColor,
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -70,6 +70,10 @@ class Assets {
   /// assets/images/profile_image.png
   static const String imagesProfileImage = "assets/images/profile_image.png";
 
+  /// Assets for imagesSendReport
+  /// assets/images/send_report.png
+  static const String imagesSendReport = "assets/images/send_report.png";
+
   /// Assets for imagesVerified
   /// assets/images/Verified.svg
   static const String imagesVerified = "assets/images/Verified.svg";

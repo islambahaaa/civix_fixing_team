@@ -38,14 +38,17 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.0
+  flutter_image_compress: ^2.4.0
   flutter_localizations:
     sdk: flutter
   flutter_pw_validator: ^1.6.0
   flutter_svg: ^2.0.17
   geocoding: ^3.0.0
   get_it: ^8.0.3
+  image_picker: ^1.1.2
   jwt_decoder: ^2.0.1
   modal_progress_hud_nsn: ^0.5.1
+  permission_handler: ^11.4.0
   pinput: ^5.0.1
   shared_preferences: ^2.5.2
   shimmer: ^3.0.0
