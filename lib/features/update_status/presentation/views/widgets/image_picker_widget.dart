@@ -14,20 +14,15 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class MultiImagePickerScreen extends StatefulWidget {
-  const MultiImagePickerScreen({
-    super.key,
-    this.onImagePicked,
-    this.indicateCameraPicture,
-  });
+  const MultiImagePickerScreen({super.key, this.onImagePicked});
   final Function(List<XFile>)? onImagePicked;
-  final Function(List<Map<String, dynamic>>)? indicateCameraPicture;
   @override
   _MultiImagePickerScreenState createState() => _MultiImagePickerScreenState();
 }
 
 class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
   final ImagePicker _picker = ImagePicker();
-  final List<Map<String, dynamic>> _images = [];
+  final List<XFile> _images = [];
   final int maxImages = 5;
   final int maxImageSizeInBytes = 5 * 1024 * 1024;
 
@@ -35,7 +30,7 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
     List<int> newBytes = await File(newFile.path).readAsBytes();
     String newHash = base64Encode(newBytes);
 
-    for (XFile existingFile in getImages()) {
+    for (XFile existingFile in _images) {
       List<int> existingBytes = await File(existingFile.path).readAsBytes();
       String existingHash = base64Encode(existingBytes);
 
@@ -44,7 +39,6 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
     return false;
   }
 
-  List<XFile> getImages() => _images.map((e) => e['file'] as XFile).toList();
   Future<bool> requestCameraPermission() async {
     var status = await Permission.camera.request();
     return status.isGranted;
@@ -75,9 +69,8 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
   void addImage(XFile image, bool isCamera) async {
     setState(() {
       if (_images.length < maxImages) {
-        _images.add({'file': image, 'isCamera': isCamera});
-        widget.onImagePicked!(getImages());
-        widget.indicateCameraPicture!(_images);
+        _images.add(image);
+        widget.onImagePicked!(_images);
       }
     });
   }
@@ -85,8 +78,7 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
   void removeImage(int index) {
     setState(() {
       _images.removeAt(index);
-      widget.onImagePicked!(getImages());
-      widget.indicateCameraPicture!(_images);
+      widget.onImagePicked!(_images);
     });
   }
 
@@ -223,14 +215,13 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
                           newIndex -= 1;
                         }
 
-                        final Map<String, dynamic> movedImage = _images
-                            .removeAt(oldIndex);
+                        final XFile movedImage = _images.removeAt(oldIndex);
                         _images.insert(newIndex, movedImage);
                       });
                     },
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      final image = _images[index]['file'] as XFile;
+                      final image = _images[index];
                       // Display selected images
 
                       return ReorderableListViewItem(
@@ -239,7 +230,7 @@ class _MultiImagePickerScreenState extends State<MultiImagePickerScreen> {
                         onPressed: () {
                           setState(() {
                             removeImage(index);
-                            widget.onImagePicked!(getImages());
+                            widget.onImagePicked!(_images);
                           });
                         },
                       );
