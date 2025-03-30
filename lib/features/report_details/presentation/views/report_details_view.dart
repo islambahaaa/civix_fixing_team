@@ -73,7 +73,8 @@ class ReportDetailsView extends StatelessWidget {
                   const Divider(thickness: 0.25, color: Colors.grey),
 
                   LocationSection(
-                    // location: location,
+                    lat: report.lat,
+                    long: report.long,
                     address: report.city!,
                   ),
                 ],
