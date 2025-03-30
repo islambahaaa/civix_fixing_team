@@ -15,7 +15,10 @@ class ReportDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: ReportDetailsBottomBar(),
+      bottomNavigationBar: ReportDetailsBottomBar(
+        latitude: report.lat,
+        longitude: report.long,
+      ),
       appBar: AppBar(title: const Text('Issue Details')),
       body: SingleChildScrollView(
         child: Column(
