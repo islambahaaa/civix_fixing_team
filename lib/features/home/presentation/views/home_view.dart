@@ -83,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                 HomeViewBody(
                   onNameTap: () {
                     pageController.animateToPage(
-                      1,
+                      2,
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.easeInOutExpo,
                     );
