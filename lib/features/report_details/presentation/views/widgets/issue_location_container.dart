@@ -53,8 +53,11 @@ class IssueLocationContainer extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    border: Border.all(color: AppColors.primaryColor, width: 2),
+                    color: Theme.of(context).cardTheme.color,
+                    border:
+                        Theme.of(context).brightness == Brightness.light
+                            ? Border.all(width: 2)
+                            : null,
                   ),
 
                   child: Row(

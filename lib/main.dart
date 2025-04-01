@@ -5,6 +5,7 @@ import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/features/splash/presentation/views/splash_view.dart';
 import 'package:civix_teams/language/lang_cubit.dart';
+import 'package:civix_teams/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -33,13 +34,10 @@ class CivixTeamsApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             locale: locale,
             title: 'Civix Teams',
-            theme: ThemeData(
-              fontFamily: 'Cairo',
-              colorScheme: ColorScheme.fromSeed(
-                seedColor: AppColors.primaryColor,
-              ),
-              scaffoldBackgroundColor: Colors.white,
-            ),
+
+            theme: AppThemes.lightTheme, // Light theme
+            darkTheme: AppThemes.darkTheme, // Dark theme
+            themeMode: ThemeMode.dark,
             localizationsDelegates: [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

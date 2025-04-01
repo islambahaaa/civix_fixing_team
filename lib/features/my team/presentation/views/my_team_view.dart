@@ -11,7 +11,6 @@ class MyTeamView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("My Team", style: TextStyles.semibold24inter),
-        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: MyTeamViewBody(),

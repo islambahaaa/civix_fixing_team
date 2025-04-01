@@ -65,14 +65,23 @@ class ContactTile extends StatelessWidget {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              GestureDetector(
-                child: SvgPicture.asset(
-                  Assets.imagesWhatsappSvgrepoCom,
-                  width: 24,
+              Material(
+                color: Colors.transparent, // No background color
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(
+                    50,
+                  ), // Circular touch effect
+                  onTap: () => _launchWhatsApp(phoneNumber),
+                  child: Padding(
+                    padding: EdgeInsets.all(12), // Increases the clickable area
+                    child: SvgPicture.asset(
+                      Assets.imagesWhatsappSvgrepoCom,
+                      width: 26,
+                    ),
+                  ),
                 ),
-                onTap: () => _launchWhatsApp(phoneNumber),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 4),
               IconButton(
                 icon: Icon(Icons.call, color: Colors.green),
                 onPressed: () => _launchDialer(phoneNumber),
