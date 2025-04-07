@@ -37,7 +37,7 @@ class CivixTeamsApp extends StatelessWidget {
 
             theme: AppThemes.lightTheme, // Light theme
             darkTheme: AppThemes.darkTheme, // Dark theme
-            themeMode: ThemeMode.dark,
+            themeMode: ThemeMode.system,
             localizationsDelegates: [
               S.delegate,
               GlobalMaterialLocalizations.delegate,

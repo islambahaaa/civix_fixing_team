@@ -48,4 +48,8 @@ class DioClient {
   Future<Response> getMyIssues(String endpoint) async {
     return await dio.get('${ApiConstants.baseUrl}$endpoint');
   }
+
+  Future<Response> getMyTeam(String endpoint) async {
+    return await dio.get('${ApiConstants.baseUrl}$endpoint');
+  }
 }
