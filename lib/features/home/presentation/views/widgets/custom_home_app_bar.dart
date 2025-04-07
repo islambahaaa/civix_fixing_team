@@ -20,7 +20,14 @@ class CustomHomeAppBar extends StatelessWidget {
       onTap: onTap,
       child: ListTile(
         contentPadding: EdgeInsets.zero,
-        leading: Image.asset(Assets.imagesProfileImage),
+        leading: CircleAvatar(
+          backgroundColor: Colors.green[300],
+          radius: 30,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child: Image.asset(Assets.imagesProfileImage),
+          ),
+        ),
         title: Text(S.of(context).hello),
         subtitle: Text("$fname $lname"),
         trailing: NotificationItem(notificationCount: 5, onTap: () {}),

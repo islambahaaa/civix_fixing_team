@@ -32,12 +32,16 @@ class ProfileViewBody extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Image.asset(
-                        Assets.imagesProfileImage,
-                        width: 120,
-                        height: 120,
+                    CircleAvatar(
+                      backgroundColor: Colors.green[300],
+                      maxRadius: 60,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Image.asset(
+                          Assets.imagesProfileImage,
+                          width: 120,
+                          height: 120,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
