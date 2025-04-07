@@ -14,8 +14,9 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<ReportModel>>> fetchMyReports() async {
     try {
       var data = await apiReportService.getMyIssues();
+      print(data);
       List<ReportModel> reports = [];
-      for (var item in data['data']) {
+      for (var item in data) {
         var report = ReportModel.fromJson(item);
         await report.fetchCityName(); // Fetch city name asynchronously
         print(

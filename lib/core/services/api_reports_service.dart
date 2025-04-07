@@ -5,8 +5,10 @@ class ApiReportService {
   DioClient dio;
   ApiReportService(this.dio);
 
-  Future<Map<String, dynamic>> getMyIssues() async {
+  Future<List<Map<String, dynamic>>> getMyIssues() async {
     var response = await dio.getMyIssues(ApiConstants.myIssuesEndpoint);
-    return response.data;
+    return (response.data as List)
+        .map((item) => item as Map<String, dynamic>)
+        .toList();
   }
 }

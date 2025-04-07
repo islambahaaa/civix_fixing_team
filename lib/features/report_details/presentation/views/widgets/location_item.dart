@@ -9,9 +9,8 @@ class LocationWidget extends StatelessWidget {
       children: [
         const Icon(Icons.location_on_outlined, color: Colors.green),
         const SizedBox(width: 8),
-        Text(
-          text,
-          overflow: TextOverflow.ellipsis,
+        Expanded(
+          child: Text(text, overflow: TextOverflow.ellipsis, maxLines: 2),
         ),
       ],
     );

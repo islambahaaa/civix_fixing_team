@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 AppBar buildAppBar({context, required String text, Widget? leading}) {
   return AppBar(
-    backgroundColor: Colors.white,
     scrolledUnderElevation: 0,
     title: Text(
       text,
@@ -46,7 +45,6 @@ PreferredSize otpAppBar(BuildContext context) {
     child: Container(
       padding: const EdgeInsets.only(top: 16),
       child: AppBar(
-        backgroundColor: Colors.white,
         scrolledUnderElevation: 0,
         title: Text(
           S.of(context).forgot_pass,

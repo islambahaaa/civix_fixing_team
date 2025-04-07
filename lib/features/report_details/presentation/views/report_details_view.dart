@@ -45,18 +45,26 @@ class ReportDetailsView extends StatelessWidget {
                   /// Description
                   const SizedBox(height: 12),
 
-                  /// Status
-                  Row(
-                    children: [
-                      const Icon(Icons.info, color: Colors.blue),
-                      const SizedBox(width: 8),
-                      Text(report.status, style: const TextStyle(fontSize: 16)),
-                    ],
-                  ),
+                  // /// Status
+                  // Row(
+                  //   children: [
+                  //     const Icon(Icons.info, color: Colors.blue),
+                  //     const SizedBox(width: 8),
+                  //     Text(report.status, style: const TextStyle(fontSize: 16)),
+                  //   ],
+                  // ),
 
-                  const SizedBox(height: 8),
-
-                  /// Date & Time
+                  // const SizedBox(height: 8),
+                  // Row(
+                  //   children: [
+                  //     const Icon(Icons.category, color: Colors.orange),
+                  //     const SizedBox(width: 8),
+                  //     Text(
+                  //       report.category,
+                  //       style: const TextStyle(fontSize: 16),
+                  //     ),
+                  //   ],
+                  // ),
                   Row(
                     children: [
                       const Icon(Icons.calendar_today, color: Colors.green),
@@ -66,6 +74,23 @@ class ReportDetailsView extends StatelessWidget {
                       Text(report.time!, style: const TextStyle(fontSize: 16)),
                     ],
                   ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.info, color: Colors.blue),
+                      const SizedBox(width: 8),
+                      Text(report.status, style: const TextStyle(fontSize: 16)),
+                      Spacer(),
+                      const Icon(Icons.category_rounded, color: Colors.orange),
+                      const SizedBox(width: 8),
+                      Text(
+                        report.category,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+
+                  /// Date & Time
                   const SizedBox(height: 12),
                   const Divider(thickness: 0.25, color: Colors.grey),
                   DescriptionSection(description: report.description),

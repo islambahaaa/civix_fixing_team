@@ -88,15 +88,15 @@ class ProfileViewBody extends StatelessWidget {
                     text: S.of(context).language,
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    //showThemeDialog(context);
-                  },
-                  child: ProfileListTile(
-                    icon: Icons.dark_mode_outlined,
-                    text: S.of(context).theme,
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () {
+                //     //showThemeDialog(context);
+                //   },
+                //   child: ProfileListTile(
+                //     icon: Icons.dark_mode_outlined,
+                //     text: S.of(context).theme,
+                //   ),
+                // ),
               ],
             ),
             const SizedBox(height: 25),
