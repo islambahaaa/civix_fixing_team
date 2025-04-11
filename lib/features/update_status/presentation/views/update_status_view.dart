@@ -1,4 +1,5 @@
 import 'package:civix_teams/features/update_status/presentation/views/widgets/update_status_view_body.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class UpdateStatusView extends StatelessWidget {
@@ -7,7 +8,7 @@ class UpdateStatusView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Update Status")),
+      appBar: AppBar(title: Text(S.of(context).update_status)),
       body: UpdateStatusViewBody(),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:civix_teams/core/utils/app_images.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -60,7 +61,10 @@ class ContactTile extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text('$age yrs', style: Theme.of(context).textTheme.bodyMedium),
+                Text(
+                  '$age ${S.of(context).yrs}',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ],
             ),
             const SizedBox(height: 8),
@@ -96,7 +100,7 @@ class ContactTile extends StatelessWidget {
                       BlendMode.srcIn,
                     ),
                   ),
-                  label: const Text('WhatsApp'),
+                  label: Text(S.of(context).whatsapp),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green[600],
                     foregroundColor: Colors.white,
@@ -108,7 +112,7 @@ class ContactTile extends StatelessWidget {
                 ElevatedButton.icon(
                   onPressed: () => _launchDialer(phoneNumber),
                   icon: const Icon(Icons.call),
-                  label: const Text('Call'),
+                  label: Text(S.of(context).call),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue[600],
                     foregroundColor: Colors.white,

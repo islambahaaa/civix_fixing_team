@@ -2,6 +2,7 @@ import 'package:civix_teams/constants.dart';
 import 'package:civix_teams/core/widgets/custom_button.dart';
 import 'package:civix_teams/features/update_status/presentation/views/widgets/description_field.dart';
 import 'package:civix_teams/features/update_status/presentation/views/widgets/image_picker_widget.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -55,7 +56,7 @@ class _UpdateStatusViewBodyState extends State<UpdateStatusViewBody> {
                     });
                   }
                 },
-                text: 'Send',
+                text: S.of(context).submit,
               ),
             ],
           ),

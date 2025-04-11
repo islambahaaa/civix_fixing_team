@@ -4,6 +4,7 @@ import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:civix_teams/features/my%20team/domain/repos/my_team_repo.dart';
 import 'package:civix_teams/features/my%20team/presentation/manager/cubit/my_team_cubit.dart';
 import 'package:civix_teams/features/my%20team/presentation/views/widgets/my_team_view_body.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,7 @@ class MyTeamView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Team", style: TextStyles.semibold24inter),
+        title: Text(S.of(context).my_team, style: TextStyles.semibold24inter),
         centerTitle: true,
       ),
       body: MyTeamViewBody(),

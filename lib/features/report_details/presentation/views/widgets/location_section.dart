@@ -3,6 +3,7 @@ import 'package:civix_teams/core/utils/app_images.dart';
 import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/issue_location_container.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/location_item.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LocationSection extends StatelessWidget {
@@ -21,8 +22,8 @@ class LocationSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 8),
-        const Text(
-          "Location",
+        Text(
+          S.of(context).location,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           overflow: TextOverflow.ellipsis,
         ),

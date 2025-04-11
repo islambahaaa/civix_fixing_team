@@ -35,7 +35,7 @@ class ReportDetailsBottomBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             BottomDetailsViewButton(
-              text: 'Directions',
+              text: S.of(context).directions,
               icon: Icons.directions,
               backgroundColor: Colors.blue.shade200,
               textColor: Colors.black,
@@ -45,7 +45,7 @@ class ReportDetailsBottomBar extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             BottomDetailsViewButton(
-              text: 'Decline',
+              text: S.of(context).decline,
               icon: Icons.cancel,
               backgroundColor: Colors.red,
               textColor: Colors.white,
@@ -55,7 +55,7 @@ class ReportDetailsBottomBar extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             BottomDetailsViewButton(
-              text: 'Update Status',
+              text: S.of(context).update_status,
               icon: Icons.done,
               backgroundColor: Colors.green,
               textColor: Colors.white,
@@ -78,7 +78,10 @@ void showDeclineDialog(BuildContext context, Function(String) onSubmit) {
     builder: (BuildContext context) {
       return AlertDialog(
         title: Center(
-          child: Text("Decline Assignment", style: TextStyles.bold28insturment),
+          child: Text(
+            S.of(context).decline_assignment,
+            style: TextStyles.bold28insturment,
+          ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -90,7 +93,7 @@ void showDeclineDialog(BuildContext context, Function(String) onSubmit) {
               maxLines: 3,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: "Enter your reason...",
+                hintText: S.of(context).enter_reason,
               ),
             ),
           ],
@@ -104,7 +107,7 @@ void showDeclineDialog(BuildContext context, Function(String) onSubmit) {
                 Navigator.pop(context);
               }
             },
-            text: 'Submit',
+            text: S.of(context).submit,
           ),
         ],
       );

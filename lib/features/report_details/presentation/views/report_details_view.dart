@@ -5,6 +5,7 @@ import 'package:civix_teams/features/report_details/presentation/views/widgets/b
 import 'package:civix_teams/features/report_details/presentation/views/widgets/description_section.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/image_slider.dart';
 import 'package:civix_teams/features/report_details/presentation/views/widgets/location_section.dart';
+import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class ReportDetailsView extends StatelessWidget {
@@ -19,7 +20,7 @@ class ReportDetailsView extends StatelessWidget {
         latitude: report.lat,
         longitude: report.long,
       ),
-      appBar: AppBar(title: const Text('Issue Details')),
+      appBar: AppBar(title: Text(S.of(context).report_details)),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -130,6 +130,23 @@
     "city": "المدينة",
     "region": "المنطقة",
     "not_authorized": "ليس لديك صلاحية , يرجى تسجيل الدخول مرة أخرى",
-    "issue_type": "أختيار نوع المشكلة"
+    "issue_type": "أختيار نوع المشكلة",
+    "my_team" : "فريقي",
+    "mark_all_as_read": "تمييز الكل كمقروء",
+    "notification_dismissed": "تم حذف الاشعار",
+    "just_now": "الآن",
+    "minutes_ago": "قبل دقيقة",
+    "hours_ago": "قبل ساعة",
+    "days_ago": "قبل يوم",
+    "location": "الموقع",
+    "see_location": "عرض الموقع",
+    "directions": "الاتجاهات",
+    "decline": "رفض",
+    "update_status": "تحديث الحالة",
+    "decline_assignment": "رفض المهمة",
+    "enter_reason": "أدخل السبب...",
+    "whatsapp": "واتساب",
+    "call": "اتصال",
+    "yrs" : "سنة"
   }
   

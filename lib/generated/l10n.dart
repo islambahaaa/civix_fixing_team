@@ -1356,6 +1356,176 @@ class S {
       args: [],
     );
   }
+
+  /// `My Team`
+  String get my_team {
+    return Intl.message(
+      'My Team',
+      name: 'my_team',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mark all as read`
+  String get mark_all_as_read {
+    return Intl.message(
+      'Mark all as read',
+      name: 'mark_all_as_read',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification dismissed`
+  String get notification_dismissed {
+    return Intl.message(
+      'Notification dismissed',
+      name: 'notification_dismissed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Just now`
+  String get just_now {
+    return Intl.message(
+      'Just now',
+      name: 'just_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `min ago`
+  String get minutes_ago {
+    return Intl.message(
+      'min ago',
+      name: 'minutes_ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hr ago`
+  String get hours_ago {
+    return Intl.message(
+      'hr ago',
+      name: 'hours_ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `d ago`
+  String get days_ago {
+    return Intl.message(
+      'd ago',
+      name: 'days_ago',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get location {
+    return Intl.message(
+      'Location',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See Location`
+  String get see_location {
+    return Intl.message(
+      'See Location',
+      name: 'see_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Directions`
+  String get directions {
+    return Intl.message(
+      'Directions',
+      name: 'directions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Decline`
+  String get decline {
+    return Intl.message(
+      'Decline',
+      name: 'decline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Status`
+  String get update_status {
+    return Intl.message(
+      'Update Status',
+      name: 'update_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Decline Assignment`
+  String get decline_assignment {
+    return Intl.message(
+      'Decline Assignment',
+      name: 'decline_assignment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your reason...`
+  String get enter_reason {
+    return Intl.message(
+      'Enter your reason...',
+      name: 'enter_reason',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `WhatsApp`
+  String get whatsapp {
+    return Intl.message(
+      'WhatsApp',
+      name: 'whatsapp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Call`
+  String get call {
+    return Intl.message(
+      'Call',
+      name: 'call',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `yrs`
+  String get yrs {
+    return Intl.message(
+      'yrs',
+      name: 'yrs',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
