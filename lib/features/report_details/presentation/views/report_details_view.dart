@@ -1,3 +1,4 @@
+import 'package:civix_teams/core/helper_functions/get_status_color.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/widgets/custom_button.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
@@ -41,31 +42,39 @@ class ReportDetailsView extends StatelessWidget {
                     ),
                   ),
 
+                  const SizedBox(height: 16),
+
+                  /// Status
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.info,
+                        color: getStatusColor(report.status, context),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(report.status, style: const TextStyle(fontSize: 16)),
+                    ],
+                  ),
+
                   const SizedBox(height: 8),
 
-                  /// Description
-                  const SizedBox(height: 12),
+                  /// Category
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.category_rounded,
+                        color: Colors.deepPurple,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        report.category,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
 
-                  // /// Status
-                  // Row(
-                  //   children: [
-                  //     const Icon(Icons.info, color: Colors.blue),
-                  //     const SizedBox(width: 8),
-                  //     Text(report.status, style: const TextStyle(fontSize: 16)),
-                  //   ],
-                  // ),
-
-                  // const SizedBox(height: 8),
-                  // Row(
-                  //   children: [
-                  //     const Icon(Icons.category, color: Colors.orange),
-                  //     const SizedBox(width: 8),
-                  //     Text(
-                  //       report.category,
-                  //       style: const TextStyle(fontSize: 16),
-                  //     ),
-                  //   ],
-                  // ),
+                  /// Date & Time
                   Row(
                     children: [
                       const Icon(Icons.calendar_today, color: Colors.green),
@@ -75,27 +84,14 @@ class ReportDetailsView extends StatelessWidget {
                       Text(report.time!, style: const TextStyle(fontSize: 16)),
                     ],
                   ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      const Icon(Icons.info, color: Colors.blue),
-                      const SizedBox(width: 8),
-                      Text(report.status, style: const TextStyle(fontSize: 16)),
-                      Spacer(),
-                      const Icon(Icons.category_rounded, color: Colors.orange),
-                      const SizedBox(width: 8),
-                      Text(
-                        report.category,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-
-                  /// Date & Time
                   const SizedBox(height: 12),
+
+                  /// Description
                   const Divider(thickness: 0.25, color: Colors.grey),
                   DescriptionSection(description: report.description),
                   const SizedBox(height: 12),
+
+                  /// Location
                   const Divider(thickness: 0.25, color: Colors.grey),
 
                   LocationSection(

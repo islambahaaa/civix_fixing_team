@@ -1,3 +1,4 @@
+import 'package:civix_teams/core/helper_functions/get_status_color.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/utils/app_text_styles.dart';
@@ -47,16 +48,7 @@ class ReportItem extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color:
-                                report.status == S.of(context).solved
-                                    ? Colors.green[600]
-                                    : report.status == 'Open'
-                                    ? Theme.of(context).brightness ==
-                                            Brightness.dark
-                                        ? Theme.of(context).cardTheme.color
-                                        : Colors.grey[200]
-                                    : Colors.red[600],
-                            //color: Colors.grey[200],
+                            color: getStatusColor(report.status, context),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Text(
