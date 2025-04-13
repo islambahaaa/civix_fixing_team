@@ -162,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpected_error" : MessageLookupByLibrary.simpleMessage("حدث خطأ غير متوقع، يرجى المحاولة مرة أخرى!"),
     "update_status" : MessageLookupByLibrary.simpleMessage("تحديث الحالة"),
     "uppercase" : MessageLookupByLibrary.simpleMessage("حرف كبير واحد"),
+    "user_info" : MessageLookupByLibrary.simpleMessage("معلومات المستخدم"),
     "valid_email" : MessageLookupByLibrary.simpleMessage("أدخل بريدًا إلكترونيًا صالحًا"),
     "verification_code" : MessageLookupByLibrary.simpleMessage("أين تود استلام رمز التحقق؟"),
     "verify" : MessageLookupByLibrary.simpleMessage("تحقق"),

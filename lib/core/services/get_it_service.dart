@@ -8,6 +8,8 @@ import 'package:civix_teams/features/home/data/repos/home_repo_impl.dart';
 import 'package:civix_teams/features/home/domain/repos/home_repo.dart';
 import 'package:civix_teams/features/my%20team/data/repos/my_team_repo_impl.dart';
 import 'package:civix_teams/features/my%20team/domain/repos/my_team_repo.dart';
+import 'package:civix_teams/features/update_status/data/repos/update_issue_status_repo_impl.dart';
+import 'package:civix_teams/features/update_status/domain/repos/update_issue_status_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -35,5 +37,8 @@ void setupGetIt() {
   );
   getIt.registerSingleton<MyTeamRepo>(
     MyTeamRepoImpl(apiTeamService: getIt.get<ApiTeamService>()),
+  );
+  getIt.registerSingleton<UpdateIssueStatusRepo>(
+    UpdateIssueStatusRepoImpl(apiReportService: getIt.get<ApiReportService>()),
   );
 }

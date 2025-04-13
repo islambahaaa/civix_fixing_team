@@ -45,7 +45,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
     case UpdateStatusView.routeName:
-      return MaterialPageRoute(builder: (context) => const UpdateStatusView());
+      return MaterialPageRoute(
+        builder:
+            (context) =>
+                UpdateStatusView(issueId: settings.arguments as String),
+      );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
   }

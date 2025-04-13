@@ -18,6 +18,9 @@ class ReportModel extends ReportEntity {
     required super.date,
     required super.images,
     this.time,
+    super.userName,
+    super.userPhone,
+    required super.fixingStatus,
   });
 
   factory ReportModel.fromJson(Map<String, dynamic> json) {
@@ -35,6 +38,9 @@ class ReportModel extends ReportEntity {
       status: json['status'] ?? '',
       date: parsedDateTime['date'] ?? '',
       time: parsedDateTime['time'] ?? '',
+      userName: json['userName'],
+      userPhone: json['userPhone'],
+      fixingStatus: json['fixingStatus'] ?? '',
       images:
           (json['images'] as List<dynamic>?)
               ?.map((e) => e.toString())

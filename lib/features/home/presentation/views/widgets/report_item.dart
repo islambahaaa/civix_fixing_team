@@ -53,9 +53,9 @@ class ReportItem extends StatelessWidget {
                           ),
                           child: Text(
                             report.status,
-                            style: const TextStyle(
+                            style: TextStyles.bold15inter.copyWith(
                               fontSize: 10,
-                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
                             ),
                           ),
                         ),

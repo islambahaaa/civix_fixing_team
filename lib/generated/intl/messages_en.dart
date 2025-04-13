@@ -162,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unexpected_error" : MessageLookupByLibrary.simpleMessage("Unexpected Error, Please try again!"),
     "update_status" : MessageLookupByLibrary.simpleMessage("Update Status"),
     "uppercase" : MessageLookupByLibrary.simpleMessage("1 Uppercase letter"),
+    "user_info" : MessageLookupByLibrary.simpleMessage("User Information"),
     "valid_email" : MessageLookupByLibrary.simpleMessage("Enter a valid email"),
     "verification_code" : MessageLookupByLibrary.simpleMessage("Where would you like to receive a Verification Code ?"),
     "verify" : MessageLookupByLibrary.simpleMessage("Verify"),

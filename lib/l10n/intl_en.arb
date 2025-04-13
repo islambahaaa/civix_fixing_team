@@ -147,5 +147,6 @@
     "enter_reason" : "Enter your reason...",
     "whatsapp" : "WhatsApp",
     "call" : "Call",
-    "yrs" : "yrs"
+    "yrs" : "yrs",
+    "user_info" : "User Information"
   }

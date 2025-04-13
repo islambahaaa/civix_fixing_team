@@ -1,14 +1,17 @@
 import 'package:civix_teams/constants.dart';
+import 'package:civix_teams/core/helper_functions/build_snack_bar.dart';
 import 'package:civix_teams/core/widgets/custom_button.dart';
+import 'package:civix_teams/features/update_status/presentation/cubit/update_issue_status_cubit/update_issue_status_cubit.dart';
 import 'package:civix_teams/features/update_status/presentation/views/widgets/description_field.dart';
 import 'package:civix_teams/features/update_status/presentation/views/widgets/image_picker_widget.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UpdateStatusViewBody extends StatefulWidget {
-  const UpdateStatusViewBody({super.key});
-
+  const UpdateStatusViewBody({super.key, required this.issueId});
+  final String issueId;
   @override
   State<UpdateStatusViewBody> createState() => _UpdateStatusViewBodyState();
 }
@@ -34,7 +37,9 @@ class _UpdateStatusViewBodyState extends State<UpdateStatusViewBody> {
             children: [
               MultiImagePickerScreen(
                 onImagePicked: (images) {
-                  //update cubit
+                  BlocProvider.of<UpdateIssueStatusCubit>(
+                    context,
+                  ).addImages(images);
                 },
               ),
               SizedBox(height: 16),
@@ -48,8 +53,16 @@ class _UpdateStatusViewBodyState extends State<UpdateStatusViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-
-                    //to do implement submit
+                    if (context
+                        .read<UpdateIssueStatusCubit>()
+                        .images
+                        .isNotEmpty) {
+                      BlocProvider.of<UpdateIssueStatusCubit>(
+                        context,
+                      ).updateIssueStatus(widget.issueId, 'Fixed', description);
+                    } else {
+                      buildSnackBar(context, S.of(context).provide_images);
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;

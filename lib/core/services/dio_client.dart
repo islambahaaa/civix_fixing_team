@@ -52,4 +52,12 @@ class DioClient {
   Future<Response> getMyTeam(String endpoint) async {
     return await dio.get('${ApiConstants.baseUrl}$endpoint');
   }
+
+  Future<Response> postIssueUpdate(String endpoint, FormData formData) async {
+    return await dio.post(
+      '${ApiConstants.baseUrl}$endpoint',
+      data: formData,
+      options: Options(headers: {"Content-Type": "multipart/form-data"}),
+    );
+  }
 }
