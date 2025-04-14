@@ -1,4 +1,5 @@
 import 'package:civix_teams/core/helper_functions/build_snack_bar.dart';
+import 'package:civix_teams/core/helper_functions/show_dialog.dart';
 import 'package:civix_teams/core/services/get_it_service.dart';
 import 'package:civix_teams/core/widgets/custom_progress_hud.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
@@ -32,7 +33,24 @@ class ReportDetailsView extends StatelessWidget {
         body: BlocConsumer<UpdateIssueStatusCubit, UpdateIssueStatusState>(
           listener: (context, state) {
             if (state is UpdateIssueStatusSuccess) {
+              BuildContext rootContext =
+                  Navigator.of(context, rootNavigator: true).context;
               Navigator.of(context).pop();
+
+              Future.microtask(() {
+                showCustomDialog(
+                  rootContext,
+                  S.of(context).status_updated,
+                  '',
+                  Icons.done_all,
+                );
+
+                Future.delayed(Duration(seconds: 2), () {
+                  if (rootContext.mounted) {
+                    Navigator.of(rootContext).pop();
+                  }
+                });
+              });
             }
             if (state is UpdateIssueStatusFailure) {
               buildSnackBar(context, state.errMessage);

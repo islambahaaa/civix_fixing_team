@@ -149,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "solved_issues" : MessageLookupByLibrary.simpleMessage("المشاكل المحلولة"),
     "something_wrong" : MessageLookupByLibrary.simpleMessage("حدث خطأ ما، يرجى المحاولة مرة أخرى!"),
     "special_char" : MessageLookupByLibrary.simpleMessage("حرف خاص واحد"),
+    "status_updated" : MessageLookupByLibrary.simpleMessage("تم تحديث الحالة بنجاح."),
     "street_light" : MessageLookupByLibrary.simpleMessage("مشكلة في الإنارة"),
     "submit" : MessageLookupByLibrary.simpleMessage("إرسال"),
     "success" : MessageLookupByLibrary.simpleMessage("نجاح!"),
