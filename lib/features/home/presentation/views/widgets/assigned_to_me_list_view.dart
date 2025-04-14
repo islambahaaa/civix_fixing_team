@@ -30,19 +30,12 @@ class AssignedToMeListView extends StatelessWidget {
             );
           }
           final reports = state.reports;
-          return SliverList.builder(
+          return SliverList.separated(
             itemCount: reports.length,
+            separatorBuilder:
+                (context, index) => const Divider(thickness: 0.15),
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                child: Column(
-                  children: [
-                    ReportItem(report: reports[index]),
-                    const SizedBox(height: 7),
-                    const Divider(thickness: 0.15),
-                  ],
-                ),
-              );
+              return ReportItem(report: reports[index]);
             },
           );
         } else if (state is HomeFailure) {

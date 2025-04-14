@@ -41,10 +41,13 @@ class ReportDetailsViewBody extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.info,
-                      color: getStatusColor(report.status, context),
+                      color: getStatusColor(report.fixingStatus, context),
                     ),
                     const SizedBox(width: 8),
-                    Text(report.status, style: const TextStyle(fontSize: 16)),
+                    Text(
+                      report.fixingStatus,
+                      style: const TextStyle(fontSize: 16),
+                    ),
                   ],
                 ),
 

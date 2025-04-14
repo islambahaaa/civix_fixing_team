@@ -12,7 +12,7 @@ class ReportItem extends StatelessWidget {
   final ReportModel report;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         Navigator.pushNamed(
           context,
@@ -22,70 +22,77 @@ class ReportItem extends StatelessWidget {
       },
       child: Material(
         color: Colors.transparent,
-        child: SizedBox(
-          height: 90,
-          child: Row(
-            children: [
-              CustomReportImage(
-                borderRadius: BorderRadius.circular(12),
-                imageUrl: report.images[0],
-              ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: SizedBox(
+            height: 90,
+            child: Row(
+              children: [
+                const SizedBox(width: 2),
+                CustomReportImage(
+                  borderRadius: BorderRadius.circular(12),
+                  imageUrl: report.images[0],
+                ),
 
-              // Image.asset(
-              //   Assets.imagesLogo,
-              //   fit: BoxFit.cover,
-              //   width: 100,
-              //   height: 50,
-              // ),
-              const SizedBox(width: 20),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: getStatusColor(report.status, context),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            report.status,
-                            style: TextStyles.bold15inter.copyWith(
-                              fontSize: 10,
-                              color: Colors.white,
+                // Image.asset(
+                //   Assets.imagesLogo,
+                //   fit: BoxFit.cover,
+                //   width: 100,
+                //   height: 50,
+                // ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: getStatusColor(
+                                report.fixingStatus,
+                                context,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(
+                              report.fixingStatus,
+                              style: TextStyles.bold15inter.copyWith(
+                                fontSize: 10,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
-                        const Spacer(),
-                        Text(
-                          report.date,
-                          style: const TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w300,
-                            color: AppColors.lightGrayColor,
+                          const Spacer(),
+                          Text(
+                            report.date,
+                            style: const TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w300,
+                              color: AppColors.lightGrayColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      report.title,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyles.semibold16inter,
-                    ),
-                    const SizedBox(height: 3),
-                    Text(
-                      report.city!,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                    ),
-                  ],
+                        ],
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        report.title,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyles.semibold16inter,
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        report.city!,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
