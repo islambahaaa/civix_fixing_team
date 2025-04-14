@@ -1546,6 +1546,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No reports found`
+  String get no_reports {
+    return Intl.message(
+      'No reports found',
+      name: 'no_reports',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Declined or Solved`
+  String get declined_or_solved {
+    return Intl.message(
+      'Declined or Solved',
+      name: 'declined_or_solved',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

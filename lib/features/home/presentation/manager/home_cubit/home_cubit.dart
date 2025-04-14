@@ -14,10 +14,12 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> fetchMyReports() async {
     emit(HomeLoading());
     var result = await homeRepo.fetchMyReports();
-    log(result.toString());
-    result.fold(
-      (failure) => emit(HomeFailure(failure.message)),
-      (reports) => emit(HomeSuccess(reports)),
-    );
+    result.fold((failure) => emit(HomeFailure(failure.message)), (reports) {
+      List<ReportModel> resolvedReports =
+          reports.where((r) => r.status == 'Resolved').toList();
+      List<ReportModel> activeReports =
+          reports.where((r) => r.status != 'Resolved').toList();
+      emit(HomeSuccess(activeReports, resolvedReports));
+    });
   }
 }

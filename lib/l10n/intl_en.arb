@@ -149,6 +149,7 @@
     "call" : "Call",
     "yrs" : "yrs",
     "user_info" : "User Information",
-    "status_updated" : "Status updated successfully."
-
+    "status_updated" : "Status updated successfully.",
+    "no_reports": "No reports found",
+    "declined_or_solved" : "Declined or Solved"
   }

@@ -1,8 +1,10 @@
+import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:civix_teams/features/auth/presentation/cubits/user_cubit/user_cubit.dart';
 import 'package:civix_teams/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/assigned_to_me_header.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/assigned_to_me_list_view.dart';
+import 'package:civix_teams/features/home/presentation/views/widgets/solved_issues_list_view.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:civix_teams/constants.dart';
@@ -47,6 +49,23 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
             const AssignedToMeListView(),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Text(
+                        S.of(context).declined_or_solved,
+                        style: TextStyles.regular17inter,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                ],
+              ),
+            ),
+            const SolvedIssuesListView(),
           ],
         ),
       ),

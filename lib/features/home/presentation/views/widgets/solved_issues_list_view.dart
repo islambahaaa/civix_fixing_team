@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
-class AssignedToMeListView extends StatelessWidget {
-  const AssignedToMeListView({super.key});
+class SolvedIssuesListView extends StatelessWidget {
+  const SolvedIssuesListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,20 +16,17 @@ class AssignedToMeListView extends StatelessWidget {
         if (state is HomeLoading) {
           return _buildShimmerLoading();
         } else if (state is HomeSuccess) {
-          if (state.reports.isEmpty) {
+          if (state.solvedReports.isEmpty) {
             return SliverToBoxAdapter(
               child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Text(
-                    S.of(context).no_reports,
-                    style: const TextStyle(color: Colors.red),
-                  ),
+                child: Text(
+                  S.of(context).no_reports,
+                  style: const TextStyle(color: Colors.red),
                 ),
               ),
             );
           }
-          final reports = state.reports;
+          final reports = state.solvedReports;
           return SliverList.builder(
             itemCount: reports.length,
             itemBuilder: (context, index) {
