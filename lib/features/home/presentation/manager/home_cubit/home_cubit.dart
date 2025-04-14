@@ -16,9 +16,19 @@ class HomeCubit extends Cubit<HomeState> {
     var result = await homeRepo.fetchMyReports();
     result.fold((failure) => emit(HomeFailure(failure.message)), (reports) {
       List<ReportModel> resolvedReports =
-          reports.where((r) => r.status == 'Resolved').toList();
+          reports
+              .where(
+                (r) =>
+                    r.fixingStatus == 'Fixed' || r.fixingStatus == 'Declined',
+              )
+              .toList();
       List<ReportModel> activeReports =
-          reports.where((r) => r.status != 'Resolved').toList();
+          reports
+              .where(
+                (r) =>
+                    r.fixingStatus != 'Fixed' && r.fixingStatus != 'Declined',
+              )
+              .toList();
       emit(HomeSuccess(activeReports, resolvedReports));
     });
   }
