@@ -23,6 +23,7 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return CustomChangeBorderTextField(
       controller: widget.controller,
+      autofillhints: [AutofillHints.password],
       obscureText: obscureText,
       onSaved: widget.onSaved,
       onChanged: widget.onchanged,

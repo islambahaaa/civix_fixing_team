@@ -151,6 +151,8 @@
     "user_info" : "معلومات المستخدم",
     "status_updated" : "تم تحديث الحالة بنجاح.",
     "no_reports": "لا يوجد بلاغات",
-    "declined_or_solved" : "تم رفضها او تم حلها"
+    "declined_or_solved" : "تم رفضها او تم حلها",
+    "select_your_team" : "حدد فريقك",
+    "full_name" : "الاسم الكامل"
   }
   

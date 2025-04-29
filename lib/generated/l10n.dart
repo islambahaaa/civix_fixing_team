@@ -1566,6 +1566,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Select Your Team`
+  String get select_your_team {
+    return Intl.message(
+      'Select Your Team',
+      name: 'select_your_team',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Name`
+  String get full_name {
+    return Intl.message(
+      'Full Name',
+      name: 'full_name',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

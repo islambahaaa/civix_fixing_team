@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.textInputType,
+    this.autofillhints,
     this.suffixIcon,
     this.onSaved,
     this.onChanged,
@@ -30,9 +31,11 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final bool isEmailform;
   final bool isDone;
+  final Iterable<String>? autofillhints;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofillHints: autofillhints,
       focusNode: focusNode,
       controller: controller,
       textInputAction: TextInputAction.next,
@@ -85,6 +88,7 @@ class CustomChangeBorderTextField extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.textInputType,
+    this.autofillhints,
     this.suffixIcon,
     this.prefixIcon,
     this.controller,
@@ -102,6 +106,7 @@ class CustomChangeBorderTextField extends StatefulWidget {
   final void Function(String?)? onChanged;
   final bool obscureText;
   final bool isEmailform;
+  final Iterable<String>? autofillhints;
   @override
   State<CustomChangeBorderTextField> createState() =>
       _CustomChangeBorderTextFieldState();
@@ -133,6 +138,7 @@ class _CustomChangeBorderTextFieldState
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
+      autofillhints: widget.autofillhints,
       isEmailform: widget.isEmailform,
       suffixIcon: widget.suffixIcon,
       prefixIcon: widget.prefixIcon,
