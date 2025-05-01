@@ -42,10 +42,16 @@ class ReportModel extends ReportEntity {
       userPhone: json['userPhone'],
       fixingStatus: json['fixingStatus'] ?? '',
       images:
-          (json['images'] as List<dynamic>?)
-              ?.map((e) => e.toString())
-              .toList() ??
-          [],
+          (() {
+            final rawImages =
+                (json['images'] as List<dynamic>?)
+                    ?.map((e) => e.toString())
+                    .toList();
+            if (rawImages == null || rawImages.isEmpty) {
+              return ['https://demofree.sirv.com/nope-not-here.jpg?w=150'];
+            }
+            return rawImages;
+          })(),
     );
   }
   static Map<String, String> _parseDateTime(String dateTimeString) {

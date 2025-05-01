@@ -2,6 +2,7 @@ import 'package:civix_teams/core/services/get_it_service.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/utils/app_text_styles.dart';
 import 'package:civix_teams/features/auth/presentation/cubits/user_cubit/user_cubit.dart';
+import 'package:civix_teams/features/calendar/presentation/views/calendar_view.dart';
 import 'package:civix_teams/features/home/domain/repos/home_repo.dart';
 import 'package:civix_teams/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:civix_teams/features/home/presentation/views/widgets/custom_bottom_nav_bar.dart';
@@ -95,6 +96,7 @@ class _HomeViewState extends State<HomeView> {
                     );
                   },
                 ),
+                CalendarPage(),
                 const MyTeamView(),
                 const ProfileView(),
               ],
