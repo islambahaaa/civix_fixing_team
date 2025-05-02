@@ -153,6 +153,7 @@
     "no_reports": "لا يوجد بلاغات",
     "declined_or_solved" : "تم رفضها او تم حلها",
     "select_your_team" : "حدد فريقك",
-    "full_name" : "الاسم الكامل"
+    "full_name" : "الاسم الكامل",
+    "calendar" : "التقويم"
   }
   

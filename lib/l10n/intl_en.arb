@@ -153,5 +153,6 @@
     "no_reports": "No reports found",
     "declined_or_solved" : "Declined or Solved",
     "select_your_team" : "Select Your Team",
-    "full_name" : "Full Name"
+    "full_name" : "Full Name",
+    "calendar" : "Calendar"
   }

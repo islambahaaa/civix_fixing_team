@@ -1,9 +1,7 @@
-import 'package:civix_teams/core/helper_functions/get_status_color.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
+import 'package:civix_teams/features/calendar/presentation/views/widgets/events_list_view.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/features/home/presentation/manager/home_cubit/home_cubit.dart';
-import 'package:civix_teams/features/home/presentation/views/widgets/custom_report_image.dart';
-import 'package:civix_teams/features/report_details/presentation/views/report_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -23,7 +21,6 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Fixing Calendar')),
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if (state is HomeLoading) {
@@ -88,46 +85,9 @@ class _CalendarPageState extends State<CalendarPage> {
                   },
                 ),
                 const SizedBox(height: 16),
-                Expanded(
-                  child: ListView(
-                    children:
-                        (events[normalizedSelectedDay] ?? []).map((event) {
-                          return Card(
-                            margin: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            child: ListTile(
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 6,
-                              ),
-                              onTap:
-                                  () => Navigator.of(context).pushNamed(
-                                    ReportDetailsView.routeName,
-                                    arguments: event,
-                                  ),
-                              leading: CustomReportImage(
-                                borderRadius: BorderRadius.circular(5),
-                                imageUrl: event.images[0],
-                              ),
-
-                              title: Text(event.title),
-                              subtitle: Text(event.description),
-                              trailing: Text(
-                                event.fixingStatus,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: getStatusColor(
-                                    event.fixingStatus.toLowerCase(),
-                                    context,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                  ),
+                EventsListView(
+                  events: events,
+                  normalizedSelectedDay: normalizedSelectedDay,
                 ),
               ],
             );
@@ -155,7 +115,7 @@ class _CalendarPageState extends State<CalendarPage> {
         }
         grouped[key]!.add(report);
       } catch (e) {
-        // Skip if date parsing fails
+        print('Error parsing date: $e');
       }
     }
 

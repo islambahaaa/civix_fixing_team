@@ -65,7 +65,7 @@ class CustomBottomNavBar extends StatelessWidget {
               Icons.calendar_month_outlined,
               color: Theme.of(context).colorScheme.onSurface,
             ),
-            label: S.of(context).my_team,
+            label: S.of(context).calendar,
           ),
           NavigationDestination(
             selectedIcon: const Icon(

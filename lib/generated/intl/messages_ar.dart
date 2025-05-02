@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "assigned_to_me" : MessageLookupByLibrary.simpleMessage("تم تعيينها لي"),
     "broken_street" : MessageLookupByLibrary.simpleMessage("شارع مكسور"),
     "broken_streetlight" : MessageLookupByLibrary.simpleMessage("إنارة مكسورة"),
+    "calendar" : MessageLookupByLibrary.simpleMessage("التقويم"),
     "call" : MessageLookupByLibrary.simpleMessage("اتصال"),
     "camera_denied" : MessageLookupByLibrary.simpleMessage("تم رفض إذن الكاميرا"),
     "cancel" : MessageLookupByLibrary.simpleMessage("إلغاء"),

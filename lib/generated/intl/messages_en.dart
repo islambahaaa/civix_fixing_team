@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "assigned_to_me" : MessageLookupByLibrary.simpleMessage("Assigned to me"),
     "broken_street" : MessageLookupByLibrary.simpleMessage("A broken Street"),
     "broken_streetlight" : MessageLookupByLibrary.simpleMessage("Broken Streetlight"),
+    "calendar" : MessageLookupByLibrary.simpleMessage("Calendar"),
     "call" : MessageLookupByLibrary.simpleMessage("Call"),
     "camera_denied" : MessageLookupByLibrary.simpleMessage("Camera permission denied"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
