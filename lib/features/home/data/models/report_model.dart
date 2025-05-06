@@ -5,6 +5,7 @@ import 'package:geocoding/geocoding.dart';
 class ReportModel extends ReportEntity {
   String? city;
   String? time;
+  String? updatedOn;
 
   ReportModel({
     this.city,
@@ -18,6 +19,7 @@ class ReportModel extends ReportEntity {
     required super.date,
     required super.images,
     this.time,
+    this.updatedOn,
     super.userName,
     super.userPhone,
     required super.fixingStatus,
@@ -41,6 +43,7 @@ class ReportModel extends ReportEntity {
       userName: json['userName'],
       userPhone: json['userPhone'],
       fixingStatus: json['fixingStatus'] ?? '',
+      updatedOn: json['updatedOn'],
       images:
           (() {
             final rawImages =

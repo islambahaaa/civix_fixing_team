@@ -107,7 +107,9 @@ class _CalendarPageState extends State<CalendarPage> {
 
     for (var report in reports) {
       try {
-        final date = DateFormat('dd/MM/yyyy').parse(report.date);
+        final date = DateFormat(
+          'dd/MM/yyyy',
+        ).parse(report.updatedOn ?? report.date);
         final key = DateTime(date.year, date.month, date.day);
 
         if (!grouped.containsKey(key)) {
