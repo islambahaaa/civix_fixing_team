@@ -35,7 +35,8 @@ class ReportDetailsView extends StatelessWidget {
             if (state is UpdateIssueStatusSuccess) {
               BuildContext rootContext =
                   Navigator.of(context, rootNavigator: true).context;
-              Navigator.of(context).pop();
+
+              Navigator.of(context).popUntil((route) => route.isFirst);
 
               Future.microtask(() {
                 showCustomDialog(
