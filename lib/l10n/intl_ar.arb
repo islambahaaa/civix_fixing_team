@@ -154,6 +154,7 @@
     "declined_or_solved" : "تم رفضها او تم حلها",
     "select_your_team" : "حدد فريقك",
     "full_name" : "الاسم الكامل",
-    "calendar" : "التقويم"
+    "calendar" : "التقويم",
+    "egyptian_phone_number" : "ادخل رقم هاتف مصري صحيح"
   }
   

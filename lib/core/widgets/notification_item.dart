@@ -25,8 +25,7 @@ class NotificationItem extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              // color: Theme.of(context).cardTheme.color,
-              color: AppColors.lightSecondaryColor2,
+              color: Theme.of(context).cardTheme.color,
             ),
             child: SvgPicture.asset(Assets.imagesNotification, width: 26),
           ),

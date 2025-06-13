@@ -99,7 +99,6 @@ class _CalendarPageState extends State<CalendarPage> {
     );
   }
 
-  /// Group reports by normalized DateTime (removing time component)
   Map<DateTime, List<ReportModel>> groupReportsByDate(
     List<ReportModel> reports,
   ) {
@@ -107,17 +106,17 @@ class _CalendarPageState extends State<CalendarPage> {
 
     for (var report in reports) {
       try {
-        final date = DateFormat(
-          'dd/MM/yyyy',
-        ).parse(report.updatedOn ?? report.date);
+        if (report.deadLine == null || report.deadLine!.trim().isEmpty) {
+          continue;
+        }
+
+        final date = DateTime.parse(report.deadLine!);
+
         final key = DateTime(date.year, date.month, date.day);
 
-        if (!grouped.containsKey(key)) {
-          grouped[key] = [];
-        }
-        grouped[key]!.add(report);
+        grouped.putIfAbsent(key, () => []).add(report);
       } catch (e) {
-        print('Error parsing date: $e');
+        print('Error parsing deadline "${report.deadLine}": $e');
       }
     }
 

@@ -1,3 +1,4 @@
+import 'package:civix_teams/core/services/firebase_notification_service.dart';
 import 'package:civix_teams/core/services/get_it_service.dart';
 import 'package:civix_teams/core/utils/app_colors.dart';
 import 'package:civix_teams/core/utils/app_text_styles.dart';
@@ -30,10 +31,14 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   int currentIndex = 0;
   late PageController pageController;
+  final firebaseService = getIt.get<FirebaseNotificationService>();
 
   @override
   void initState() {
     super.initState();
+    firebaseService.requestPermission();
+    firebaseService.getToken();
+    firebaseService.setupOnMessageListener();
     pageController = PageController(initialPage: currentIndex);
   }
 
@@ -90,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
                 HomeViewBody(
                   onNameTap: () {
                     pageController.animateToPage(
-                      2,
+                      3,
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.easeInOutExpo,
                     );

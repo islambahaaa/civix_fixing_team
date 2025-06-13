@@ -1596,6 +1596,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter a valid Egyptian phone number`
+  String get egyptian_phone_number {
+    return Intl.message(
+      'Enter a valid Egyptian phone number',
+      name: 'egyptian_phone_number',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

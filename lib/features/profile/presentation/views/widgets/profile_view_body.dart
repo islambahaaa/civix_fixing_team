@@ -13,6 +13,7 @@ import 'package:civix_teams/features/profile/presentation/views/widgets/theme_di
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
@@ -72,28 +73,28 @@ class ProfileViewBody extends StatelessWidget {
             const SizedBox(height: 20),
             ProfileSection(
               children: [
-                ProfileListTile(
-                  icon: Icons.notes_outlined,
-                  text: S.of(context).edit_profile,
-                ),
-                ProfileListTile(
-                  icon: Icons.notifications_outlined,
-                  text: S.of(context).notifications,
-                  trailing: const SwitchWidget(),
-                ),
-                ProfileListTile(
-                  icon: Icons.phone_outlined,
-                  text: S.of(context).mobile_number,
-                  // trailing: Text(
-                  //   '01090357957',
-                  //   style: TextStyles.regular14inter.copyWith(
-                  //     color:
-                  //         Theme.of(context).brightness == Brightness.dark
-                  //             ? Theme.of(context).colorScheme.secondary
-                  //             : AppColors.secondaryColor,
-                  //   ),
-                  // ),
-                ),
+                // ProfileListTile(
+                //   icon: Icons.notes_outlined,
+                //   text: S.of(context).edit_profile,
+                // ),
+                // ProfileListTile(
+                //   icon: Icons.notifications_outlined,
+                //   text: S.of(context).notifications,
+                //   trailing: const SwitchWidget(),
+                // ),
+                // ProfileListTile(
+                //   icon: Icons.phone_outlined,
+                //   text: S.of(context).mobile_number,
+                //   // trailing: Text(
+                //   //   '01090357957',
+                //   //   style: TextStyles.regular14inter.copyWith(
+                //   //     color:
+                //   //         Theme.of(context).brightness == Brightness.dark
+                //   //             ? Theme.of(context).colorScheme.secondary
+                //   //             : AppColors.secondaryColor,
+                //   //   ),
+                //   // ),
+                // ),
               ],
             ),
             const SizedBox(height: 25),
@@ -122,9 +123,12 @@ class ProfileViewBody extends StatelessWidget {
             const SizedBox(height: 25),
             ProfileSection(
               children: [
-                ProfileListTile(
-                  icon: Icons.help_outline_outlined,
-                  text: S.of(context).help,
+                GestureDetector(
+                  onTap: launchEmail,
+                  child: ProfileListTile(
+                    icon: Icons.help_outline_outlined,
+                    text: S.of(context).help,
+                  ),
                 ),
               ],
             ),
@@ -153,5 +157,20 @@ class ProfileViewBody extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void launchEmail() async {
+  final String subject = Uri.encodeComponent('App Support');
+  final String body = Uri.encodeComponent('Hello, I need help with...');
+  final Uri emailLaunchUri = Uri.parse(
+    'mailto:support@civix.space?subject=$subject&body=$body',
+  );
+
+  if (await canLaunchUrl(emailLaunchUri)) {
+    await launchUrl(emailLaunchUri);
+  } else {
+    // Handle error - maybe show a dialog
+    print('Could not launch email app');
   }
 }

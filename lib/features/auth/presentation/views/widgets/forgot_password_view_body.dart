@@ -26,11 +26,11 @@ void launchForgotPasswordEmail({
   required String department,
   String? phoneNumber,
 }) async {
-  final String email = 'it-support@example.com';
+  final String email = 'support@civix.space';
 
   final String subject = 'Password Reset Request';
   final String body = '''
-Dear IT Support Team,
+Dear Civix Support Team,
 
 I hope you are doing well.
 
@@ -119,11 +119,11 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                 textInputType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 16),
-              CustomTextFormField(
+              CustomChangeBorderPhoneField(
                 onSaved: (value) {
                   phoneNumber = value!;
                 },
-                hintText: S.of(context).mobile_number,
+
                 prefixIcon: Icons.phone,
                 textInputType: TextInputType.phone,
               ),
@@ -147,7 +147,7 @@ class _ForgotPasswordViewBodyState extends State<ForgotPasswordViewBody> {
                     });
                   }
                 },
-                text: S.of(context).send_code,
+                text: S.of(context).submit,
               ),
               const SizedBox(height: 16),
             ],

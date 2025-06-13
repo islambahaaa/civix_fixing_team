@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:civix_teams/features/notifications/presentation/views/notification_view.dart';
 import 'package:civix_teams/features/profile/presentation/views/profile_view.dart';
 import 'package:civix_teams/features/home/data/models/report_model.dart';
 import 'package:civix_teams/features/auth/domain/entities/user_entity.dart';
@@ -42,6 +43,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case ProfileView.routeName:
       return MaterialPageRoute(builder: (context) => const ProfileView());
+    case NotificationsView.routeName:
+      return MaterialPageRoute(builder: (context) => const NotificationsView());
     case HomeView.routeName:
       return MaterialPageRoute(builder: (context) => const HomeView());
     case UpdateStatusView.routeName:

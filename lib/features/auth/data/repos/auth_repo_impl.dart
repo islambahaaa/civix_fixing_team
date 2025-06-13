@@ -5,6 +5,8 @@ import 'package:civix_teams/constants.dart';
 import 'package:civix_teams/core/errors/exceptions.dart';
 import 'package:civix_teams/core/errors/failures.dart';
 import 'package:civix_teams/core/services/api_auth_service.dart';
+import 'package:civix_teams/core/services/firebase_notification_service.dart';
+import 'package:civix_teams/core/services/get_it_service.dart';
 
 import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
 import 'package:civix_teams/core/utils/backend_endpoints.dart';
@@ -65,9 +67,12 @@ class AuthRepoImpl implements AuthRepo {
     String password,
   ) async {
     try {
+      String? fcmToken =
+          await getIt.get<FirebaseNotificationService>().getToken();
       var response = await apiAuthService.signInWithEmailAndPassword(
         email,
         password,
+        fcmToken: fcmToken,
       );
       final token =
           response['token']; // Change this if your token is in another key

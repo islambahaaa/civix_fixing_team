@@ -26,12 +26,13 @@ class ApiAuthService {
 
   Future<Map<String, dynamic>> signInWithEmailAndPassword(
     String email,
-    String password,
-  ) async {
+    String password, {
+    String? fcmToken,
+  }) async {
     var response = await dio.authPost(ApiConstants.login, {
       "email": email,
       "password": password,
-    });
+    }, fcmToken: fcmToken);
     return response.data;
   }
 

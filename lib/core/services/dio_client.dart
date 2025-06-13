@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:civix_teams/constants.dart';
 import 'package:civix_teams/core/constants/api_constants.dart';
 import 'package:civix_teams/core/services/shared_prefrences_singleton.dart';
@@ -38,9 +39,15 @@ class DioClient {
     }
   }
 
-  Future<Response> authPost(String endpoint, var data) async {
+  Future<Response> authPost(
+    String endpoint,
+    var data, {
+    String? fcmToken,
+  }) async {
+    log('token in dio : $fcmToken');
     return await dio.post(
       '${ApiConstants.baseUrl}${ApiConstants.authEndpoint}$endpoint',
+      queryParameters: fcmToken != null ? {'fcmtoken': fcmToken} : null,
       data: data,
     );
   }

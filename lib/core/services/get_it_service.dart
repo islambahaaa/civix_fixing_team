@@ -2,6 +2,7 @@ import 'package:civix_teams/core/services/api_auth_service.dart';
 import 'package:civix_teams/core/services/api_reports_service.dart';
 import 'package:civix_teams/core/services/api_team_service.dart';
 import 'package:civix_teams/core/services/dio_client.dart';
+import 'package:civix_teams/core/services/firebase_notification_service.dart';
 import 'package:civix_teams/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:civix_teams/features/auth/domain/repos/auth_repo.dart';
 import 'package:civix_teams/features/home/data/repos/home_repo_impl.dart';
@@ -27,6 +28,9 @@ void setupGetIt() {
   );
   getIt.registerSingleton<ApiAuthService>(
     ApiAuthService(getIt.get<DioClient>()),
+  );
+  getIt.registerSingleton<FirebaseNotificationService>(
+    FirebaseNotificationService(),
   );
   //repos
   getIt.registerSingleton<AuthRepo>(

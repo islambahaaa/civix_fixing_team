@@ -1,4 +1,5 @@
 import 'package:civix_teams/core/widgets/notification_item.dart';
+import 'package:civix_teams/features/notifications/presentation/views/notification_view.dart';
 import 'package:civix_teams/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,12 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
         title: Text(S.of(context).hello),
         subtitle: Text("$fname $lname"),
-        trailing: NotificationItem(notificationCount: 5, onTap: () {}),
+        trailing: NotificationItem(
+          notificationCount: 9,
+          onTap: () {
+            Navigator.pushNamed(context, NotificationsView.routeName);
+          },
+        ),
       ),
     );
   }

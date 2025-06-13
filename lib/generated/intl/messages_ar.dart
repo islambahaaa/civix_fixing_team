@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "directions" : MessageLookupByLibrary.simpleMessage("الاتجاهات"),
     "done" : MessageLookupByLibrary.simpleMessage("تم"),
     "edit_profile" : MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+    "egyptian_phone_number" : MessageLookupByLibrary.simpleMessage("ادخل رقم هاتف مصري صحيح"),
     "email" : MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "enter_code" : MessageLookupByLibrary.simpleMessage("أدخل الرمز المرسل إلى بريدك الإلكتروني"),
     "enter_reason" : MessageLookupByLibrary.simpleMessage("أدخل السبب..."),
