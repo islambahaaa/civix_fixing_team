@@ -89,7 +89,7 @@ class ReportDetailsViewBody extends StatelessWidget {
                 LocationSection(
                   lat: report.lat,
                   long: report.long,
-                  address: report.city!,
+                  address: report.city ?? '',
                 ),
                 const Divider(thickness: 0.25, color: Colors.grey),
                 UserInfoSection(

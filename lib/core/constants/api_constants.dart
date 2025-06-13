@@ -1,5 +1,6 @@
 class ApiConstants {
   static const String baseUrl = 'https://civix.runasp.net';
+  static const String notificationEndpoint = '/api/Notifications/me';
   static const String authEndpoint = '/api/Auth/';
   static const String myIssuesEndpoint = '/api/FixingTeams/issues';
   static const String getMyTeamEndpoint = '/api/FixingTeams/me';

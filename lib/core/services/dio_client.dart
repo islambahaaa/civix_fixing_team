@@ -60,6 +60,16 @@ class DioClient {
     return await dio.get('${ApiConstants.baseUrl}$endpoint');
   }
 
+  Future<Response> get(
+    String endpoint, {
+    Map<String, dynamic>? queryParameter,
+  }) async {
+    return await dio.get(
+      '${ApiConstants.baseUrl}$endpoint',
+      queryParameters: queryParameter,
+    );
+  }
+
   Future<Response> postIssueUpdate(String endpoint, FormData formData) async {
     return await dio.post(
       '${ApiConstants.baseUrl}$endpoint',
