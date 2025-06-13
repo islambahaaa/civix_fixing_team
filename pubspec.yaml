@@ -79,9 +79,9 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icon/icon.jpg"
-  adaptive_icon_background: "#00000000"
-  adaptive_icon_foreground: "assets/icon/forground.png"
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/icon/foreground.png"
 flutter:
 
   # The following line ensures that the Material Icons font is
@@ -91,6 +91,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/icon/icon.png
+    - assets/icon/foreground.png
   fonts:
     - family: ins
       fonts:

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:civix_teams/constants.dart';
 import 'package:civix_teams/core/helper_functions/background_not_handler.dart';
 import 'package:civix_teams/core/helper_functions/on_generate_routes.dart';
@@ -21,21 +23,20 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
   await FirebaseNotificationService.initialize();
 
-  await Hive.initFlutter();
-  if (!Hive.isAdapterRegistered(0)) {
-    Hive.registerAdapter(NotificationModelAdapter());
-  }
-  await Hive.openBox<NotificationModel>(kNotificationsBox);
+  // await Hive.initFlutter();
+  // if (!Hive.isAdapterRegistered(0)) {
+  //   Hive.registerAdapter(NotificationModelAdapter());
+  // }
+  // await Hive.openBox<NotificationModel>(kNotificationsBox);
+  Bloc.observer = CustomBlocObserver();
+  setupGetIt();
 
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-  Bloc.observer = CustomBlocObserver();
-  await Prefs.init();
-  setupGetIt();
   runApp(const CivixTeamsApp());
 }
 
